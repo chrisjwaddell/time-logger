@@ -1,4 +1,4 @@
 /node_modules
-src/node_modules
-src/scripts/firebase.js
-src/scripts/settings.js
+/src/node_modules
+/src/scripts/firebase.js
+/src/scripts/settings.js
