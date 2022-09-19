@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Timesheets</title>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    </link>
+</head>
+
+<body>
+    <header role="banner">
+        <h1>Timesheet</h1>
+    </header>
+
+    <div class="scroll-arrow top">
+        <div class="top"></div>
+    </div>
+    <div class="scroll-arrow bottom">
+        <div class="bottom"></div>
+    </div>
+
+    <main>
+        <div class="o-container">
+
+            <div class="field-container o-flex">
+                <div class="field-section date">
+                    <h2>Date</h2>
+                    <div class="field">
+                        <label class="fld-label">Today</label>
+                        <input type="checkbox" class="today" checked="true" tabindex="1">
+                    </div>
+
+                    <div class="field">
+                        <label class="fld-label">Yesterday</label>
+                        <input type="checkbox" class="yesterday" tabindex="2">
+                    </div>
+
+                    <div class="field">
+                        <label class="fld-label">Other date <span>d/m/yy</span></label>
+                        <input type="text" class="otherdate db o-layout--left e-input--primary" tabindex="3">
+                    </div>
+                </div>
+
+
+                <div class="field-section times">
+                    <h2>Times</h2>
+                    <div class="o-flex">
+                        <div class="start">
+                            <h3>Start</h3>
+                            <div class="o-flex">
+                                <div class="o-flex">
+                                    <div class="field">
+                                        <p>AM</p>
+                                        <ul tabindex="4">
+                                            <li>0</li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                        </ul>
+                                    </div>
+                                    <div class="field">
+                                        <p>PM</p>
+                                        <ul tabindex="5">
+                                            <li>12</li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                            <li>0</li>
+                                        </ul>
+                                    </div>
+                                    <div class="field">
+                                        <p>Mins</p>
+                                        <ul tabindex="6">
+                                            <li>00</li>
+                                            <li>15</li>
+                                            <li>30</li>
+                                            <li>45</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="end">
+                            <h3>End</h3>
+                            <div class="o-flex">
+                                <div class="o-flex">
+                                    <div class="field">
+                                        <p>AM</p>
+                                        <ul tabindex="7">
+                                            <li>0</li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                        </ul>
+                                    </div>
+                                    <div class="field">
+                                        <p>PM</p>
+                                        <ul tabindex="8">
+                                            <li>12</li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                            <li>0</li>
+                                        </ul>
+                                    </div>
+                                    <div class="field">
+                                        <p>Mins</p>
+                                        <ul tabindex="9">
+                                            <li>00</li>
+                                            <li>15</li>
+                                            <li>30</li>
+                                            <li>45</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field-section category">
+                    <h2>Category</h2>
+                    <div class="field">
+                        <ul tabindex="10">
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+                <div class="field-section description">
+
+                    <div>
+                        <p class="or">OR</p>
+                        <div>
+                            <div class="field">
+                                <select class="category--1">
+                                    <option></option>
+                                </select>
+                                <input type="text" class="hrs">
+                                <label class="text--primary">Hrs</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="field">
+                                <select class="category--2">
+                                    <option></option>
+                                </select>
+                                <input type="text" class="hrs">
+                                <label class="text--primary">Hrs</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="field">
+                                <select class="category--3">
+                                    <option></option>
+                                </select>
+                                <input type="text" class="hrs">
+                                <label class="text--primary">Hrs</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="field">
+                                <select class="category--4">
+                                    <option></option>
+                                </select>
+                                <input type="text" class="hrs">
+                                <label class="text--primary">Hrs</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="">
+                        <h2>Description</h2>
+                        <div class="field">
+                            <input type="text" class="o-layout--left e-input--primary description-input" tabindex="11">
+                            <p>Coding podcasts-> Coding-Other with description</p>
+                        </div>
+
+                        <div class="btns">
+                            <div class="o-flex">
+                                <button class="c-btn c-btn--primary add" tabindex="12">Add</button>
+                                <button class="c-btn c-btn--primary clear" tabindex="12">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <section>
+            <h3 class="o-layout--center">Today</h3>
+
+            <h4 class="target">Target</h4>
+            <p class="target">Code-Total - 10 Hrs</p>
+
+            <table class="today">
+                <thead>
+                    <tr>
+                        <th class="times">Times</th>
+                        <th class="category">Category</th>
+                        <th class="description">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <h3>This Week</h3>
+
+            <h4 class="target">Target</h4>
+            <p class="target">Code-Coding - 40 Hrs</p>
+            <p class="target">Code-Total - 60-65 Hrs</p>
+
+            <table class="thisweek">
+                <thead>
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="Day">day</th>
+                        <th class="times">Times</th>
+                        <th class="category">Category</th>
+                        <th class="description">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="o-container">
+                <canvas id="thisWeekChart" width="100%"></canvas>
+            </div>
+        </section>
+
+
+        <section>
+            <h3>This Month</h3>
+
+            <h4 class="target">Target</h4>
+            <p class="target">Code-Coding - 175 Hrs</p>
+            <p class="target">Code-Total - 260 Hrs</p>
+
+            <div class="o-container">
+                <canvas id="thisMonthChart" width="100%"></canvas>
+            </div>
+        </section>
+
+
+        <section>
+            <h3>Rolling Last 90 days</h3>
+
+            <h4 class="target">Target</h4>
+            <p class="target">Code-Coding - 515 Hrs</p>
+            <p class="target">Code-Total - 770 Hrs</p>
+
+            <div class="o-container">
+                <canvas id="last90DaysChart" width="100%"></canvas>
+            </div>
+        </section>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+<script src="./scripts/settings.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+<script src="./scripts/firebase.js"></script>
+<script src="./scripts/chart.min.js"></script>
+<script src="./scripts/utils.js"></script>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/timesheet-tools.js"></script>
+
+</html>

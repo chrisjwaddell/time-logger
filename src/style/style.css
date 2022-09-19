@@ -1,0 +1,1481 @@
+@charset "UTF-8";
+
+:root {
+    --color-primary: #ffa000;
+    --color-secondary: #55aa22;
+    --color-primary__hover: rgba(255, 160, 0, 0.5);
+    --field-margin: 5px;
+    /* --color-primary__hover: #ffa000; */
+    /* .hover-<l-colour>:hover { color: var(--<l-colour>); }
+  .hover-bg-<l-colour>:hover { background-color: var(--<l-colour>); }
+  .hover-b-<l-colour>:hover { border-color: var(--<l-colour>); } */
+}
+
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+
+/* ==========================================================================
+   #NORMALIZE
+   ========================================================================== */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+    margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    /* 1 */
+    vertical-align: baseline;
+    /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+    display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+    background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+    font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+    border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+    margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+    overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+    margin: 0;
+    /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+    overflow: visible;
+}
+
+/* Mozilla puts a dotted line around text when a button is selected */
+button::-moz-focus-inner {
+    border: 0;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+    line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+input[type=search] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    box-sizing: content-box;
+    /* 2 */
+}
+
+f input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+    border: 0;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+    overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+    font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+/* ==========================================================================
+   #RESET
+   ========================================================================== */
+/**
+ * As well as using normalize.css, it is often advantageous to remove all
+ * margins from certain elements.
+ */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title],
+dfn[title] {
+    cursor: help;
+}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u,
+ins {
+    text-decoration: none;
+}
+
+/**
+ * Apply faux underlines to inserted text via `border-bottom`.
+ */
+ins {
+    border-bottom: 1px solid;
+}
+
+/* ==========================================================================
+   #SHARED
+   ========================================================================== */
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+hr,
+table,
+fieldset,
+figure,
+pre {
+    margin-bottom: 24px;
+}
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once,here.
+ */
+ul,
+ol,
+dd {
+    margin-left: 48px;
+}
+
+
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+h1 {
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.1666666667;
+}
+
+h2 {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 1.2857142857;
+}
+
+h3 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+h4 {
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+h5 {
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.3333333333;
+}
+
+h6 {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #231f20;
+}
+
+
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+.o-container {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .o-container {
+        max-width: 450px;
+    }
+}
+
+@media (min-width: 768px) {
+    .o-container {
+        max-width: 740px;
+    }
+}
+
+@media (min-width: 992px) {
+    .o-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .o-container {
+        max-width: 1250px;
+    }
+}
+
+
+/* ==========================================================================
+   #TEXT
+   ========================================================================== */
+/* Text selection
+* If selection makes the font hard to see, make font white
+* If the background/section is the same color as the seelction, change the selection text color
+* see _4-objects.sections.scss
+* These properties can be changed with ::selection -
+* color
+* background-color
+* cursor
+* caret-color
+* outline and its longhands
+* text-decoration and its associated properties
+* text-emphasis-color
+* text-shadow
+*/
+::selection {
+    background-color: var(--color-primary);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    text-shadow: none;
+}
+
+.selection--primary::selection {
+    background-color: var(--color-primary);
+    text-shadow: none;
+}
+
+.selection--secondary::selection {
+    background-color: #231f20;
+    text-shadow: none;
+}
+
+.selection--tertiary::selection {
+    background-color: #7777ff;
+    text-shadow: none;
+}
+
+.text--primary::selection {
+    background-color: var(--color-primary);
+}
+
+.text--primary::-moz-selection {
+    background-color: var(--color-primary);
+}
+
+.text--secondary::selection {
+    background-color: #231f20;
+}
+
+.text--secondary::-moz-selection {
+    background-color: #231f20;
+}
+
+.text--tertiary::selection {
+    background-color: #7777ff;
+}
+
+.text--tertiary::-moz-selection {
+    background-color: #7777ff;
+}
+
+/* Font color should be set this way
+* Do I need to change selection text?
+*/
+.text--primary,
+.text--secondary,
+.text--tertary {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.text--primary {
+    color: black;
+}
+
+.text--secondary {
+    color: white;
+}
+
+.text--tertiary {
+    color: #fee000;
+}
+
+
+/* ==========================================================================
+   #FIELDS
+   ========================================================================== */
+/**
+ * This makes input boxes look nicer instead of the default boring design
+ * For styling, use a style variant
+ * input HTML should include placeholder, required and tabindex attributes
+ */
+/*
+ * https://codepen.io/zellwk/pen/NeRaPw
+* input box empty, uses ::placeholder-shown
+ */
+label,
+input {
+    /* display: block; */
+    margin: 0 auto;
+}
+
+label {
+    font-size: 24px;
+    /* font-weight: 600; */
+}
+
+input {
+    /* width: 100%; */
+    font-size: 20px;
+    width: 60px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.fld-label {
+    padding: 0 0 0 5px;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.modal .modal__remember input,
+.modal .modal__remember--new input {
+    font-size: 16px;
+}
+
+
+/* ==========================================================================
+   #INPUT
+   ========================================================================== */
+/**
+ * This makes input boxes look nicer instead of the default boring design
+ * For styling, use a style variant
+ * input HTML should include placeholder, required and tabindex attributes
+ */
+/*
+ * https://codepen.io/zellwk/pen/NeRaPw
+* input box empty, uses ::placeholder-shown
+ */
+label,
+input {
+    /* display: block; */
+    margin: 0 auto;
+}
+
+label {
+    font-size: 24px;
+    /* font-weight: 600; */
+}
+
+input {
+    /* width: 100%; */
+    font-size: 20px;
+    width: 60px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* Style variants
+   ========================================================================== */
+.e-input--primary {
+    height: 2rem;
+    padding: 0.25em 0.5em;
+    font-size: 22px;
+    font-family: "Source Sans Pro", sans-serif;
+    border: 2px solid #fee000;
+    border-radius: 6px;
+}
+
+.e-input--primary:hover,
+.e-input--primary:focus,
+.e-input--primary:active {
+    background-color: #f4f4f4;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.e-input--primary:focus,
+.e-input--primary:active {
+    color: white;
+    outline: none;
+    background-color: #231f20;
+    transition: background-color 0.2s linear, color 0.2s linear;
+    box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
+}
+
+.e-input--primary:placeholder-shown {
+    background-color: #fee000;
+}
+
+.e-input--secondary {
+    height: 2rem;
+    padding: 0.25em 0.5em;
+    font-size: 22px;
+    font-family: "Source Sans Pro", sans-serif;
+    border: 2px solid #fee000;
+    border-radius: 12px;
+}
+
+.e-input--secondary:hover,
+.e-input--secondary:focus,
+.e-input--secondary:active {
+    background-color: #f4f4f4;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.e-input--secondary:focus,
+.e-input--secondary:active {
+    color: white;
+    outline: none;
+    background-color: #231f20;
+    transition: background-color 0.2s linear, color 0.2s linear;
+    box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
+}
+
+.e-input--secondary:placeholder-shown {
+    background-color: #fee000;
+}
+
+/* ==========================================================================
+   #BASE-FRAMEWORK
+   ========================================================================== */
+/**
+ * CSS framework code that's handy
+ *
+ */
+.o-flex {
+    display: flex;
+}
+
+.o-flex--1 {
+    flex: 1;
+}
+
+.o-flex--2 {
+    flex: 2;
+}
+
+.o-flex--3 {
+    flex: 3;
+}
+
+.o-flex--4 {
+    flex: 4;
+}
+
+.o-flex.centre {
+    justify-content: center;
+}
+
+.o-flex.right {
+    justify-content: flex-end;
+}
+
+.o-flex.left {
+    justify-content: flex-start;
+}
+
+.o-flex-row {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+
+.o-flex-column {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+.o-flex-row-reverse {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+    -ms-flex-direction: row-reverse !important;
+    flex-direction: row-reverse !important;
+}
+
+.o-flex-column-reverse {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+    -ms-flex-direction: column-reverse !important;
+    flex-direction: column-reverse !important;
+}
+
+.o-flex-wrap {
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+}
+
+.o-flex-nowrap {
+    -ms-flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.o-flex-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse !important;
+    flex-wrap: wrap-reverse !important;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.db {
+    display: block;
+}
+
+.dn {
+    display: none;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.mt3 {
+    margin-top: 3rem;
+}
+
+.b-black {
+    border: 1px solid #000000;
+}
+
+/* This is handy for inline css, css only for that page
+*  l-colour or brand-colour
+* Work out how I'll do this, I don't want many css variables
+* maybe just --color-brand, --color-primary, --color-secondary
+*/
+/* Not sure how to use these classes */
+.c-p {
+    color: var(--color-primary);
+}
+
+.bg-p {
+    background-color: var(--color-primary);
+}
+
+.b-p {
+    border-color: var(--color-primary);
+}
+
+.hover-c-p:hover {
+    color: var(--color-primary);
+}
+
+.hover-bg-p:hover {
+    background-color: var(--color-primary);
+}
+
+.hover-b-p:hover {
+    border-color: var(--color-primary);
+}
+
+.c-s {
+    color: #231f20;
+}
+
+.bg-s {
+    background-color: #231f20;
+}
+
+.b-s {
+    border-color: #231f20;
+}
+
+.hover-c-s:hover {
+    color: #231f20;
+}
+
+.hover-bg-s:hover {
+    background-color: #231f20;
+}
+
+.hover-b-s:hover {
+    border-color: #231f20;
+}
+
+.c-t {
+    color: #7777ff;
+}
+
+.bg-t {
+    background-color: #7777ff;
+}
+
+.b-t {
+    border-color: #7777ff;
+}
+
+.hover-c-t:hover {
+    color: #7777ff;
+}
+
+.hover-bg-t:hover {
+    background-color: #7777ff;
+}
+
+.hover-b-t:hover {
+    border-color: #7777ff;
+}
+
+.c-white {
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.c-black {
+    color: #000000;
+}
+
+.bg-black {
+    background-color: #000000;
+}
+
+.mac {
+    margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+.o-layout--center {
+    text-align: center;
+}
+
+.o-layout--right {
+    text-align: right;
+}
+
+.o-layout--left {
+    text-align: left;
+}
+
+
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+/**
+ * This is an example component. Extend inuitcss by building your own components
+ * that make up your UI. Component classes are prefixed with a `c-`.
+ */
+/**
+*  Example
+*  <button class="c-btn c-btn--primary btn-stopwatch">Start</button>
+*/
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+.c-btn {
+    display: inline-block;
+    vertical-align: middle;
+    font: inherit;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: all 300ms ease-in-out;
+    border-radius: 3px;
+}
+
+/* Style variants
+   ========================================================================== */
+.c-btn--primary {
+    background-color: var(--color-primary);
+}
+
+.c-btn--primary:hover,
+.c-btn--primary:focus,
+.c-btn--primary:active {
+    color: white;
+    text-decoration: none;
+    /* [4] */
+    background-color: var(--color-primary);
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.c-btn--primary:focus,
+.c-btn--primary:active {
+    outline: none;
+    box-shadow: 0 0 0 0.175rem white,
+        0 0 0 0.35rem var(--color-primary);
+}
+
+.c-btn--secondary {
+    background-color: #231f20;
+    background-color: #E0E0E0;
+    color: black;
+}
+
+.c-btn--secondary:hover,
+.c-btn--secondary:focus,
+.c-btn--secondary:active {
+    text-decoration: none;
+    /* [4] */
+    background-color: #aaa;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+.c-btn--secondary:focus,
+.c-btn--secondary:active {
+    outline: none;
+    box-shadow: 0 0 0 0.125rem #fee000, 0 0 0 0.325rem white;
+}
+
+
+
+/* ==========================================================================
+   #SCROLL TO TOP AND BOTTOM
+   ========================================================================== */
+
+.scroll-arrow {
+    display: none;
+    height: 28px;
+    padding: 5px 0;
+    z-index: 6000;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+    margin: 0 auto;
+    background-color: rgba(68, 68, 68, 0.4);
+}
+
+.scroll-arrow.displayed {
+    position: fixed;
+    display: block;
+    right: 1rem;
+    width: 45px;
+}
+
+.scroll-arrow.top>div {
+    transform: translateY(34%) rotate(45deg);
+}
+
+
+.scroll-arrow.bottom>div {
+    transform: translateY(-14%) rotate(225deg);
+}
+
+.scroll-arrow:hover {
+    transform: scale(1.2);
+}
+
+.scroll-arrow>div {
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    margin: 0 auto;
+}
+
+.scroll-arrow.top {
+    top: 1rem;
+}
+
+.scroll-arrow.bottom {
+    bottom: 1rem;
+}
+
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+header {
+    background-color: var(--color-secondary);
+    text-align: center;
+}
+
+.field-container {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.field-section {
+    display: inline-block;
+    border: 1px solid var(--color-primary);
+    /* border-radius: 10% 10%; */
+    padding-bottom: 10px;
+}
+
+.field p {
+    margin: 2px 4px 4px;
+}
+
+.field-section h2 {
+    font-weight: 500;
+    text-align: center;
+    padding-top: 0;
+    text-decoration: underline;
+    /* background-color: green; */
+    margin-bottom: 0;
+    padding: 5px 12px;
+}
+
+.field {
+    display: block;
+    padding: 5px 8px;
+}
+
+li,
+label,
+h2 {
+    user-select: none;
+}
+
+li:hover {
+    background-color: var(--color-primary__hover);
+    font-weight: 400;
+    text-decoration: none;
+    color: #000000;
+}
+
+li:focus {
+    background-color: var(--color-primary__hover);
+    font-weight: 400;
+    text-decoration: none;
+    color: #000000;
+}
+
+li.selected {
+    background-color: var(--color-primary);
+    /* font-weight: 800; */
+    text-decoration: none;
+    color: #ffff;
+    border: none;
+}
+
+.date label {
+    display: inline-block;
+    width: 8rem;
+}
+
+.otherdate {
+    width: 7rem;
+    margin-left: 0;
+}
+
+
+.times h3 {
+    margin: 0;
+    text-align: center;
+}
+
+.times .start,
+.times .end {
+    margin: var(--field-margin);
+    border: 2px dashed var(--color-secondary);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.times .ampm {
+    margin-top: 5px;
+}
+
+.times ul,
+.category ul {
+    list-style: none;
+    margin: 0;
+    width: 2rem;
+    line-height: 1.25;
+    text-align: center;
+    border: 1px solid var(--color-primary);
+}
+
+.times li {
+    width: 2rem;
+}
+
+.category {
+    width: 15rem;
+}
+
+.category ul,
+.description select,
+.description select option {
+    width: 11rem;
+    text-align: center;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.description .or {
+    text-align: center;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.description label {
+    font-size: 18px;
+}
+
+
+.description {
+    width: 19rem;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.description input.hrs {
+    width: 70px;
+    text-align: left;
+}
+
+.description input {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.btns {
+    width: 90%;
+    padding-top: 40px;
+    margin: 4px auto;
+}
+
+.btns .o-flex {
+    justify-content: space-evenly;
+}
+
+section {
+    margin: 150px auto 100px;
+    padding: 25px;
+    border-top: 4px solid var(--color-primary);
+}
+
+/* section:nth-of-type(odd) {
+    background-color: rgba(200, 50, 100, 0.2)
+} */
+
+h3 {
+    text-align: center;
+}
+
+section h3 {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    font-size: 40px;
+}
+
+.target {
+    text-align: center;
+    color: rgba(255, 100, 100, 1);
+}
+
+h4.target {
+    margin: 0;
+}
+
+p.target {
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+table {
+    width: auto;
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+}
+
+table thead,
+table tbody {
+    width: 100%;
+}
+
+table thead th,
+table thead td,
+table tbody th,
+table tbody td {
+    padding: 5px;
+    border-right: solid 1px #ffffff;
+    font-size: 18px;
+}
+
+table thead {
+    top: 0;
+    left: 0;
+    background-color: var(--color-secondary);
+}
+
+table thead th {
+    color: #fff;
+    font-weight: bold;
+}
+
+table tbody {
+    background-color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+
+
+
+table.today {
+    width: 1025px;
+}
+
+table thead th.date,
+table thead td.date,
+table tbody th.date,
+table tbody td.date {
+    width: 100px;
+}
+
+table thead th.day,
+table thead td.day,
+table tbody th.day,
+table tbody td.day {
+    width: 60px;
+}
+
+table thead th.times,
+table thead td.times,
+table tbody th.times,
+table tbody td.times {
+    width: 125px;
+    text-align: left;
+}
+
+table thead th.category,
+table thead td.category,
+table tbody th.category,
+table tbody td.category {
+    width: 400px;
+}
+
+table thead th.description,
+table thead td.description,
+table tbody th.description,
+table tbody td.description {
+    width: 500px;
+}
+
+table.thisweek {
+    width: 1125px;
+}
+
+
+main #todayChart {
+    width: 700px !important;
+    height: 500px !important;
+    margin: 40px auto;
+}
