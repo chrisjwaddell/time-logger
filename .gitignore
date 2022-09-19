@@ -1,3 +1,5 @@
 /node_modules
+/src
+/src/node_modules
 /src/scripts/firebase.js
 /src/scripts/settings.js
