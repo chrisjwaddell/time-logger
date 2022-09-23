@@ -2,9 +2,11 @@ let objData = {}
 
 let previousField = ""
 
+// selected class (SC) name for items selected in ul list
+const SC = "selected"
+
 // for testing
 let allDataSplit
-
 
 
 const elToday = document.querySelector(".today")
@@ -122,7 +124,7 @@ function doScrolling(element, targetScrollPos, duration) {
 
 
 
-const listSelectedIndex = (list) => listFindSelected(list, "selected")
+const listSelectedIndex = (list) => listFindSelected(list, SC)
 const listSelectedText = (list) => listIndexText(list, listSelectedIndex(list))
 
 
@@ -168,7 +170,7 @@ elOtherDate.addEventListener("input", function () {
 
 
 function onListClick(e) {
-    const selectedPreviously = listFindSelected(e.target.parentNode, "selected")
+    const selectedPreviously = listFindSelected(e.target.parentNode, SC)
     const selectedPreviouslyText = (selectedPreviously === -1) ? '' : e.target.parentNode.children[selectedPreviously].textContent
     const selectedNowText = e.target.textContent
 
@@ -181,19 +183,19 @@ function onListClick(e) {
 
     if (selectedPreviously !== -1) {
         if (selectedPreviouslyText === selectedNowText) {
-            if (sameField) e.target.classList.remove("selected")
+            if (sameField) e.target.classList.remove(SC)
         } else {
-            e.target.parentNode.children[selectedPreviously].classList.remove("selected")
-            e.target.classList.add("selected")
+            e.target.parentNode.children[selectedPreviously].classList.remove(SC)
+            e.target.classList.add(SC)
         }
     } else {
-        e.target.classList.add("selected")
+        e.target.classList.add(SC)
     }
 }
 
 
 function onListPress(e) {
-    let selected = listFindSelected(e.target, "selected")
+    let selected = listFindSelected(e.target, SC)
     let key
 
     if (e.code.slice(0, 3) === "Key") {
@@ -205,16 +207,16 @@ function onListPress(e) {
     if (e.key === "ArrowUp" || e.key === "Up") {
         e.preventDefault()
         if (selected !== -1) {
-            e.target.children[selected].classList.remove("selected")
+            e.target.children[selected].classList.remove(SC)
             selected === 0 ? selected = e.target.children.length - 1 : selected -= 1
-            e.target.children[selected].classList.add("selected")
+            e.target.children[selected].classList.add(SC)
         }
     } else if (e.key === "ArrowDown" || e.key === "Down") {
         e.preventDefault()
         if (selected !== -1) {
-            e.target.children[selected].classList.remove("selected")
+            e.target.children[selected].classList.remove(SC)
             selected === e.target.children.length - 1 ? selected = 0 : selected += 1
-            e.target.children[selected].classList.add("selected")
+            e.target.children[selected].classList.add(SC)
         }
     } else if (e.code.slice(0, 3) === "Key" || e.code.slice(0, 3) === "Dig") {
         let newSelected
@@ -229,15 +231,15 @@ function onListPress(e) {
             }
         }
 
-        if (selected !== -1 && newSelected !== -1) e.target.children[selected].classList.remove("selected")
+        if (selected !== -1 && newSelected !== -1) e.target.children[selected].classList.remove(SC)
 
         if (newSelected !== -1) {
-            e.target.children[newSelected].classList.add("selected")
+            e.target.children[newSelected].classList.add(SC)
             selected = newSelected
         }
     } else if (e.code === "Space") {
         if (selected !== -1) {
-            e.target.children[selected].classList.remove("selected")
+            e.target.children[selected].classList.remove(SC)
             selected = -1
         }
     }
@@ -261,13 +263,13 @@ function listSearchItem(parentUL, selected, letter) {
 
 
 function onListFocus(e) {
-    let selected = listFindSelected(e.target, "selected")
+    let selected = listFindSelected(e.target, SC)
 
     e.preventDefault()
 
     if (selected === -1) {
         // e.target.children[0].focus()
-        e.target.children[0].classList.add("selected")
+        e.target.children[0].classList.add(SC)
         // } else {
         // e.target.children[selected].focus()
     }
@@ -281,24 +283,24 @@ elUL.forEach((list, i) => {
     switch (i) {
         case 0:
             list.addEventListener("click", function () {
-                listUnselectAllItems(startPMList, "selected")
+                listUnselectAllItems(startPMList, SC)
             })
             break;
         case 1:
             list.addEventListener("click", function () {
-                listUnselectAllItems(startAMList, "selected")
+                listUnselectAllItems(startAMList, SC)
             })
 
             break;
         case 3:
             list.addEventListener("click", function () {
-                listUnselectAllItems(endPMList, "selected")
+                listUnselectAllItems(endPMList, SC)
             })
 
             break;
         case 4:
             list.addEventListener("click", function () {
-                listUnselectAllItems(endAMList, "selected")
+                listUnselectAllItems(endAMList, SC)
             })
             break;
     }
@@ -348,7 +350,7 @@ function categoryCheck(num) {
 function categoryCheckAll() {
     let result = ""
 
-    if (!listNothingSelected(elUL[6], "selected")) {
+    if (!listNothingSelected(elUL[6], SC)) {
         // Category is filled in so cat 1-4 fields must not be filled in
         // including the hours fields
 
@@ -427,22 +429,22 @@ function fieldsRequired() {
     }
 
     // Start hours
-    if (listNothingSelected(startAMList, "selected") && listNothingSelected(startPMList, "selected")) {
+    if (listNothingSelected(startAMList, SC) && listNothingSelected(startPMList, SC)) {
         strRequired = requiredMsg("Start hour not selected", strRequired)
     }
 
     // Start minutes
-    if (listNothingSelected(startMinList, "selected")) {
+    if (listNothingSelected(startMinList, SC)) {
         strRequired = requiredMsg("Start minutes not selected", strRequired)
     }
 
     // End hours
-    if (listNothingSelected(endAMList, "selected") && listNothingSelected(endPMList, "selected")) {
+    if (listNothingSelected(endAMList, SC) && listNothingSelected(endPMList, SC)) {
         strRequired = requiredMsg("End hour not selected", strRequired)
     }
 
     // End minutes
-    if (listNothingSelected(endMinList, "selected")) {
+    if (listNothingSelected(endMinList, SC)) {
         strRequired = requiredMsg("End minutes not selected", strRequired)
     }
 
@@ -463,11 +465,11 @@ function fieldsRequiredTwo(startTime, endTime) {
         strRequired = requiredMsg("Start time less than End time", strRequired)
     }
 
-    if (!listNothingSelected(endPMList, "selected") && !listNothingSelected(endMinList, "selected")) {
-        if (listFindSelected(endPMList, "selected") === 12 && listFindSelected(endMinList, "selected") !== 0) {
+    if (!listNothingSelected(endPMList, SC) && !listNothingSelected(endMinList, SC)) {
+        if (listFindSelected(endPMList, SC) === 12 && listFindSelected(endMinList, SC) !== 0) {
             strRequired = requiredMsg("End hour 0 means midnight. It must be 0:00.", strRequired)
         }
-    } else if (!listNothingSelected(startPMList, "selected")) {
+    } else if (!listNothingSelected(startPMList, SC)) {
         strRequired = requiredMsg("End hour not selected", strRequired)
     }
 
@@ -504,10 +506,10 @@ function onAdd() {
 
         let dt = dateBuild()
 
-        if (!listNothingSelected(startAMList, "selected")) {
+        if (!listNothingSelected(startAMList, SC)) {
             startTime = timeHMTo24Hr(listSelectedText(startAMList), listSelectedText(startMinList), "AM")
         } else {
-            if (!listNothingSelected(startPMList, "selected")) {
+            if (!listNothingSelected(startPMList, SC)) {
                 startTime = timeHMTo24Hr(listSelectedText(startPMList), listSelectedText(startMinList), "PM")
             } else {
                 //error
@@ -515,10 +517,10 @@ function onAdd() {
         }
 
 
-        if (!listNothingSelected(endAMList, "selected")) {
+        if (!listNothingSelected(endAMList, SC)) {
             endTime = timeHMTo24Hr(listSelectedText(endAMList), listSelectedText(endMinList), "AM")
         } else {
-            if (!listNothingSelected(endPMList, "selected")) {
+            if (!listNothingSelected(endPMList, SC)) {
                 if (listSelectedText(endPMList) === "0") {
                     endTime = timeHMTo24Hr(listSelectedText(endPMList), listSelectedText(endMinList), "AM")
                 } else {
@@ -533,9 +535,9 @@ function onAdd() {
         let hours = []
 
 
-        if (!listNothingSelected(elUL[6], "selected")) {
-            elUL[6].children[listFindSelected(elUL[6], "selected")].textContent
-            category.push = elUL[6].children[listFindSelected(elUL[6], "selected")].textContent
+        if (!listNothingSelected(elUL[6], SC)) {
+            elUL[6].children[listFindSelected(elUL[6], SC)].textContent
+            category.push = elUL[6].children[listFindSelected(elUL[6], SC)].textContent
         }
 
 
@@ -571,27 +573,27 @@ function clearFields() {
     let startPM
     let startMin
 
-    if (!listNothingSelected(endAMList, "selected")) {
-        startAM = listFindSelected(endAMList, "selected")
+    if (!listNothingSelected(endAMList, SC)) {
+        startAM = listFindSelected(endAMList, SC)
     } else {
-        if (!listNothingSelected(endPMList, "selected")) {
-            startPM = listFindSelected(endPMList, "selected")
+        if (!listNothingSelected(endPMList, SC)) {
+            startPM = listFindSelected(endPMList, SC)
         }
     }
 
-    if (!listNothingSelected(endMinList, "selected")) {
-        startMin = listFindSelected(endMinList, "selected")
+    if (!listNothingSelected(endMinList, SC)) {
+        startMin = listFindSelected(endMinList, SC)
     }
 
     console.log(startAM, startPM, startMin)
 
-    listUnselectAllItems(elUL[0], "selected")
-    listUnselectAllItems(elUL[1], "selected")
-    listUnselectAllItems(elUL[2], "selected")
-    listUnselectAllItems(elUL[3], "selected")
-    listUnselectAllItems(elUL[4], "selected")
-    listUnselectAllItems(elUL[5], "selected")
-    listUnselectAllItems(elUL[6], "selected")
+    listUnselectAllItems(elUL[0], SC)
+    listUnselectAllItems(elUL[1], SC)
+    listUnselectAllItems(elUL[2], SC)
+    listUnselectAllItems(elUL[3], SC)
+    listUnselectAllItems(elUL[4], SC)
+    listUnselectAllItems(elUL[5], SC)
+    listUnselectAllItems(elUL[6], SC)
     elCategoryOpt1.value = ""
     elCategoryOpt2.value = ""
     elCategoryOpt3.value = ""
@@ -605,14 +607,14 @@ function clearFields() {
 
 
     if (startAM !== null && startAM !== undefined) {
-        startAMList.children[startAM].classList.add("selected")
+        startAMList.children[startAM].classList.add(SC)
     } else {
         if (startPM !== null && startPM !== undefined) {
-            startPMList.children[startPM].classList.add("selected")
+            startPMList.children[startPM].classList.add(SC)
         }
     }
     if (startMin !== null && startMin !== undefined) {
-        startMinList.children[startMin].classList.add("selected")
+        startMinList.children[startMin].classList.add(SC)
     }
 }
 
