@@ -24,6 +24,9 @@ function initialize() {
 
             // for testing
             allDataSplit = timesheetCategorySplitGenerate(startOfData, today)
+
+            SCROLL_HEIGHT = rootElement.scrollHeight;
+            // console.log(SCROLL_HEIGHT)
         }
     })
 

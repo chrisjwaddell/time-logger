@@ -1163,12 +1163,12 @@ input {
 }
 
 .scroll-arrow.top>div {
-    transform: translateY(34%) rotate(45deg);
+    transform: translateY(30%) rotate(45deg);
 }
 
 
 .scroll-arrow.bottom>div {
-    transform: translateY(-14%) rotate(225deg);
+    transform: translateY(-24%) rotate(225deg);
 }
 
 .scroll-arrow:hover {
@@ -1184,11 +1184,11 @@ input {
 }
 
 .scroll-arrow.top {
-    top: 1rem;
+    top: 2rem;
 }
 
 .scroll-arrow.bottom {
-    bottom: 1rem;
+    bottom: 2rem;
 }
 
 /* ==========================================================================

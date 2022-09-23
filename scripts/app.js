@@ -32,43 +32,41 @@ const endMinList = elUL[5]
 
 
 
-var rootElement = document.documentElement;
-var elScrollToTopBtn = document.querySelector(".scroll-arrow.top")
-var elScrollToBottomBtn = document.querySelector(".scroll-arrow.bottom")
+let rootElement = document.documentElement;
+let elScrollToTopBtn = document.querySelector(".scroll-arrow.top")
+let elScrollToBottomBtn = document.querySelector(".scroll-arrow.bottom")
+
+
+let SCROLL_HEIGHT
 
 elScrollToTopBtn.addEventListener("click", scrollToTop)
 elScrollToBottomBtn.addEventListener("click", scrollToBottom)
+
 
 function scrollToTop() {
     doScrolling("", 0, 500)
 }
 
 function scrollToBottom() {
-    // console.log(rootElement.scrollHeight - window.innerHeight)
-    doScrolling("", rootElement.scrollHeight - window.innerHeight, 500)
+    doScrolling("", SCROLL_HEIGHT - window.innerHeight, 500)
 }
 
 
-function scrollBtns() {
-    // console.log("scroll")
-    if (window.scrollY > rootElement.scrollHeight / 4 || window.pageYoffset > rootElement.scrollHeight / 4) {
-        elScrollToTopBtn.classList.add("displayed")
-    } else {
-        elScrollToTopBtn.classList.remove("displayed")
-    }
+const scrollShowTop = () => (window.scrollY > (window.screen.height * 0.5))
+const scrollShowBottom = () => (window.scrollY + window.screen.height * 1.5) < SCROLL_HEIGHT;
 
-    if (window.scrollY > rootElement.scrollHeight / 5 || window.pageYoffset > rootElement.scrollHeight / 2) {
-        elScrollToBottomBtn.classList.add("displayed")
-    } else {
-        elScrollToBottomBtn.classList.remove("displayed")
-    }
+window.addEventListener("resize", function (e) {
+    SCROLL_HEIGHT = rootElement.scrollHeight;
+})
+
+function scrollBtns() {
+    scrollShowTop() ? elScrollToTopBtn.classList.add("displayed") : elScrollToTopBtn.classList.remove("displayed")
+
+    scrollShowBottom() ? elScrollToBottomBtn.classList.add("displayed") : elScrollToBottomBtn.classList.remove("displayed")
+
 }
 
 window.addEventListener("scroll", scrollBtns)
-
-window.addEventListener("load", function () {
-    scrollBtns()
-})
 
 
 // Scroll button functionality from https://stackoverflow.com/a/39494245/2065702
@@ -315,7 +313,7 @@ document.addEventListener("click", function (e) {
 
 function DOMLoad() {
     initialize()
-
+    SCROLL_HEIGHT = rootElement.scrollHeight
 }
 
 
@@ -499,6 +497,8 @@ function onAdd() {
     let endTime
     let strRequired = fieldsRequired()
 
+    console.log(rootElement.scrollHeight)
+
     if (strRequired) {
         alert(strRequired)
 
@@ -658,7 +658,7 @@ function timesheetItemCreate(date, starttime, endtime) {
         "description": description
     }
 
-    console.log(objTimesheetItem)
+    // console.log(objTimesheetItem)
     return objTimesheetItem
 
 
@@ -685,8 +685,6 @@ function main() {
     // Today
     let today = new Date();
 
-    // today = dateChangeDays(today, -1)
-    // alert("debugging")
     // each timesheet item is searched on the date only so make hours and mins zero
     let todaySearch = startOfDay(today);
 
