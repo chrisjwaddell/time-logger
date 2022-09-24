@@ -20,7 +20,7 @@ function initialize() {
 
             console.log(objData)
 
-            main()
+            render()
 
             // for testing
             allDataSplit = timesheetCategorySplitGenerate(startOfData, today)

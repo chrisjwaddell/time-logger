@@ -555,7 +555,7 @@ function onAdd() {
 
             endAMList.focus()
 
-            main()
+            render()
 
         }
     }
@@ -680,7 +680,7 @@ let chartThisMonth
 let chartLast90Days
 
 
-function main() {
+function render() {
 
     // Today
     let today = new Date();
@@ -688,15 +688,12 @@ function main() {
     // each timesheet item is searched on the date only so make hours and mins zero
     let todaySearch = startOfDay(today);
 
-
     const elTodayTable = document.querySelector(".today tbody")
     // const ctxToday = document.getElementById('todayChart').getContext('2d');
 
     let timesheetCategory = timesheetCategorySplitGenerate(todaySearch, todaySearch)
 
-
     timesheetCategory.map(cv => insertIntoTable(elTodayTable, cv, false))
-
 
     // This week
     let thisWeek = startOfDay(startOfWeek(today))
@@ -705,29 +702,25 @@ function main() {
     const ctxThisWeek = document.getElementById('thisWeekChart').getContext('2d');
 
     let timesheetCategoryThisWeek = timesheetCategorySplitGenerate(thisWeek, todaySearch)
-    // console.log(timesheetCategoryThisWeek)
 
-    // timesheetCategoryThisWeek.map(cv => cv[0].day = dmyyToDate(...cv[0].tdate.split("/"), "/").toString().slice(0, 3))
+    // returns an array of objects
     timesheetCategoryThisWeek.map(cv => cv.day = dmyyToDate(...cv.tdate.split("/"), "/").toString().slice(0, 3))
     timesheetCategoryThisWeek.map(cv => insertIntoTable(elThisWeekTable, cv, true))
 
     let catSum = categorySum(timesheetCategoryThisWeek)
-    // console.log(catSum)
+
+    console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
+
+    let categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
+
     let catSort = categorySort(catSum, "hours")
-
-    let arrCatThisWeek = [],
-        arrHoursThisWeek = []
-
-    catSort.forEach(cv => {
-        arrCatThisWeek.push(cv[0]);
-        arrHoursThisWeek.push(cv[1])
-    })
+    // let catSort = categorySort(bycategorySum(timesheetCategoryThisWeek), "hours")
+    console.log(catSort)
 
     if (chartThisWeek) {
         chartThisWeek.destroy();
     }
-    chartThisWeek = drawChart(ctxThisWeek, arrCatThisWeek, arrHoursThisWeek)
-
+    chartThisWeek = drawChart(ctxThisWeek, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
 
 
     // This month
@@ -736,10 +729,10 @@ function main() {
     const ctxThisMonth = document.getElementById('thisMonthChart').getContext('2d');
 
     let timesheetCategoryThisMonth = timesheetCategorySplitGenerate(thisMonth, todaySearch)
-    // console.log(timesheetCategoryThisMonth)
 
     catSum = categorySum(timesheetCategoryThisMonth)
-    // console.log(catSum)
+
+
     catSort = categorySort(catSum, "hours")
 
     let arrCatThisMonth = [],
@@ -755,7 +748,6 @@ function main() {
         chartThisMonth.destroy();
     }
     chartThisMonth = drawChart(ctxThisMonth, arrCatThisMonth, arrHoursThisMonth)
-
 
 
     // Last 90 days
@@ -786,11 +778,15 @@ function main() {
 }
 
 
+
 function categorySum(arr) {
     return arr.reduce((acc, curr) => (acc[curr.category] = acc[curr.category] + curr.hours || curr.hours, acc), {})
 }
 
+// takes object of <category>: <hour> and returns an array of arrays
 function categorySort(obj, sortfield) {
+    console.log("categorySort start - ");
+    console.log(obj)
     let result = [];
     for (var sortfield in obj) {
         result.push([sortfield, obj[sortfield]]);
@@ -798,6 +794,8 @@ function categorySort(obj, sortfield) {
     result.sort(function (a, b) {
         return b[1] - a[1];
     });
+    console.log("categorySort end - ");
+    console.log(result);
     return result
 }
 

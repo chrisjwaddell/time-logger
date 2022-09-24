@@ -25,6 +25,41 @@ function isObjectEmpty(value) {
 }
 
 
+function by(propName, desc = false) {
+    return (a, b) => {
+        if (!desc) {
+            if (a[propName] > b[propName]) return 1;
+            if (a[propName] < b[propName]) return -1;
+        } else {
+            if (a[propName] > b[propName]) return -1;
+            if (a[propName] < b[propName]) return 1;
+        }
+        return 0;
+    }
+}
+
+
+// Object :: Array
+// Takes an object and converts all key: value pairs to an array with
+// [ { properptyname1: key, properptyname2: value }, ..... ]
+function keyValueToArray(obj, propertyname1, propertyname2) {
+    if (!validPropertyName(propertyname1) || !validPropertyName(propertyname2)) {
+        return "Property names invalid"
+    }
+
+    return Object.entries(obj).reduce((acc, [k, v]) => [...acc, {
+        [propertyname1]: k,
+        [propertyname2]: v
+    }], [])
+
+    function validPropertyName(str) {
+        // check if str meets the requirements
+        return /^[^0-9][a-zA-Z0-9$_]+$/.test(str)
+    }
+}
+
+
+
 
 /* ******************************************************************************
  * DOM
