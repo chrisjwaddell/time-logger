@@ -722,9 +722,9 @@ function render() {
     // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
     categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
-    let catSort = categorySort(catSum, "hours")
-    // let catSort = categorySort(bycategorySum(timesheetCategoryThisWeek), "hours")
-    console.log(catSort)
+    // let catSort = categorySort(catSum, "hours")
+    // // let catSort = categorySort(bycategorySum(timesheetCategoryThisWeek), "hours")
+    // console.log(catSort)
 
     if (chartThisWeek) {
         chartThisWeek.destroy();
@@ -805,23 +805,6 @@ function render() {
 function categorySum(arr) {
     return arr.reduce((acc, curr) => (acc[curr.category] = acc[curr.category] + curr.hours || curr.hours, acc), {})
 }
-
-// takes object of <category>: <hour> and returns an array of arrays
-function categorySort(obj, sortfield) {
-    console.log("categorySort start - ");
-    console.log(obj)
-    let result = [];
-    for (var sortfield in obj) {
-        result.push([sortfield, obj[sortfield]]);
-    }
-    result.sort(function (a, b) {
-        return b[1] - a[1];
-    });
-    console.log("categorySort end - ");
-    console.log(result);
-    return result
-}
-
 
 function timesheetCategorySplitGenerate(startDate, endDate) {
     // let today = new Date();
