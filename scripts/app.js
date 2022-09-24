@@ -682,36 +682,45 @@ let chartLast90Days
 
 function render() {
 
-    // Today
-    let today = new Date();
+    let categoriesSortedByHours
 
+    let today = new Date();
     // each timesheet item is searched on the date only so make hours and mins zero
     let todaySearch = startOfDay(today);
 
-    const elTodayTable = document.querySelector(".today tbody")
-    // const ctxToday = document.getElementById('todayChart').getContext('2d');
 
+    // Today
     let timesheetCategory = timesheetCategorySplitGenerate(todaySearch, todaySearch)
+
+
+    // Table
+    const elTodayTable = document.querySelector(".today tbody")
 
     timesheetCategory.map(cv => insertIntoTable(elTodayTable, cv, false))
 
-    // This week
+
+
+    // THIS WEEK
     let thisWeek = startOfDay(startOfWeek(today))
 
-    const elThisWeekTable = document.querySelector(".thisweek tbody")
-    const ctxThisWeek = document.getElementById('thisWeekChart').getContext('2d');
-
     let timesheetCategoryThisWeek = timesheetCategorySplitGenerate(thisWeek, todaySearch)
+
+
+    // Table
+    const elThisWeekTable = document.querySelector(".thisweek tbody")
 
     // returns an array of objects
     timesheetCategoryThisWeek.map(cv => cv.day = dmyyToDate(...cv.tdate.split("/"), "/").toString().slice(0, 3))
     timesheetCategoryThisWeek.map(cv => insertIntoTable(elThisWeekTable, cv, true))
 
+
+    // Graph
+    const ctxThisWeek = document.getElementById('thisWeekChart').getContext('2d');
+
     let catSum = categorySum(timesheetCategoryThisWeek)
 
-    console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
-
-    let categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
+    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
+    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
     let catSort = categorySort(catSum, "hours")
     // let catSort = categorySort(bycategorySum(timesheetCategoryThisWeek), "hours")
@@ -723,57 +732,71 @@ function render() {
     chartThisWeek = drawChart(ctxThisWeek, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
 
 
-    // This month
-    let thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-    const ctxThisMonth = document.getElementById('thisMonthChart').getContext('2d');
+    // THIS MONTH
+    let thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
     let timesheetCategoryThisMonth = timesheetCategorySplitGenerate(thisMonth, todaySearch)
 
+    // Graph
+    const ctxThisMonth = document.getElementById('thisMonthChart').getContext('2d');
+
     catSum = categorySum(timesheetCategoryThisMonth)
 
+    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
+    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
-    catSort = categorySort(catSum, "hours")
+    // catSort = categorySort(catSum, "hours")
 
-    let arrCatThisMonth = [],
-        arrHoursThisMonth = []
+    // let arrCatThisMonth = [],
+    //     arrHoursThisMonth = []
 
-    catSort.forEach(cv => {
-        arrCatThisMonth.push(cv[0]);
-        arrHoursThisMonth.push(cv[1])
-    })
+    // catSort.forEach(cv => {
+    //     arrCatThisMonth.push(cv[0]);
+    //     arrHoursThisMonth.push(cv[1])
+    // })
 
 
     if (chartThisMonth) {
         chartThisMonth.destroy();
     }
-    chartThisMonth = drawChart(ctxThisMonth, arrCatThisMonth, arrHoursThisMonth)
+    chartThisMonth = drawChart(ctxThisMonth, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
 
 
-    // Last 90 days
+
+    // LAST 90 DAYS
     let last90Days = startOfDay(dateChangeDays(today, -90));
-
-    const ctxLast90Days = document.getElementById('last90DaysChart').getContext('2d');
 
     let timesheetCategoryLast90Days = timesheetCategorySplitGenerate(last90Days, todaySearch)
     console.log(timesheetCategoryLast90Days)
 
+
+    // Graph
+    const ctxLast90Days = document.getElementById('last90DaysChart').getContext('2d');
+
     catSum = categorySum(timesheetCategoryLast90Days)
     console.log(catSum)
-    catSort = categorySort(catSum, "hours")
 
-    let arrCatLast90Days = [],
-        arrHoursLast90Days = []
+    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
+    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
-    catSort.forEach(cv => {
-        arrCatLast90Days.push(cv[0]);
-        arrHoursLast90Days.push(cv[1])
-    })
+
+    // catSort = categorySort(catSum, "hours")
+
+    // let arrCatLast90Days = [],
+    //     arrHoursLast90Days = []
+
+    // catSort.forEach(cv => {
+    //     arrCatLast90Days.push(cv[0]);
+    //     arrHoursLast90Days.push(cv[1])
+    // })
+
+    let chartLast90Days
 
     if (chartLast90Days) {
         chartLast90Days.destroy();
     }
-    chartLast90Days = drawChart(ctxLast90Days, arrCatLast90Days, arrHoursLast90Days)
+    chartLast90Days = drawChart(ctxLast90Days, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
 
 }
 
