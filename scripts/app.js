@@ -722,10 +722,6 @@ function render() {
     // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
     categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
-    // let catSort = categorySort(catSum, "hours")
-    // // let catSort = categorySort(bycategorySum(timesheetCategoryThisWeek), "hours")
-    // console.log(catSort)
-
     if (chartThisWeek) {
         chartThisWeek.destroy();
     }
@@ -745,16 +741,6 @@ function render() {
 
     // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
     categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
-
-    // catSort = categorySort(catSum, "hours")
-
-    // let arrCatThisMonth = [],
-    //     arrHoursThisMonth = []
-
-    // catSort.forEach(cv => {
-    //     arrCatThisMonth.push(cv[0]);
-    //     arrHoursThisMonth.push(cv[1])
-    // })
 
 
     if (chartThisMonth) {
@@ -780,16 +766,6 @@ function render() {
     // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
     categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
 
-
-    // catSort = categorySort(catSum, "hours")
-
-    // let arrCatLast90Days = [],
-    //     arrHoursLast90Days = []
-
-    // catSort.forEach(cv => {
-    //     arrCatLast90Days.push(cv[0]);
-    //     arrHoursLast90Days.push(cv[1])
-    // })
 
     let chartLast90Days
 
