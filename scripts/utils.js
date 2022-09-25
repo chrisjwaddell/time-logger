@@ -27,13 +27,8 @@ function isObjectEmpty(value) {
 
 function by(propName, desc = false) {
     return (a, b) => {
-        if (!desc) {
-            if (a[propName] > b[propName]) return 1;
-            if (a[propName] < b[propName]) return -1;
-        } else {
-            if (a[propName] > b[propName]) return -1;
-            if (a[propName] < b[propName]) return 1;
-        }
+        if (a[propName] > b[propName]) return (desc) ? -1 : 1;
+        if (a[propName] < b[propName]) return (desc) ? 1 : -1;
         return 0;
     }
 }
