@@ -685,6 +685,10 @@ function render() {
     let categoriesSortedByHours
 
     let today = new Date();
+
+    // today = dateChangeDays(today, -1)
+    // console.log(today)
+
     // each timesheet item is searched on the date only so make hours and mins zero
     let todaySearch = startOfDay(today);
 
@@ -889,4 +893,264 @@ function drawChart(chart, categories, hours) {
 
     return myChart
 
+}
+
+// Choosing dates relative to today
+function dateRelative(dtString) {
+    let index = 0;
+    let today = new Date()
+    let str = dtString.replace(" ", "")
+    let result
+
+    while (index < str.length) {
+        switch (str[index]) {
+            case "d":
+                result = getOffset();
+                console.log("d")
+                console.dir(result)
+                // return dateChangeDays(today, result)
+                if (result.type === "relative") {
+                    return dateChangeDays(today, Number(result.offset))
+                } else if (result.type === "absolute") {
+                    return dateChangeDays(new Date(today.getFullYear(), 0, 1), Number(result.offset) - 1)
+                } else {
+                    return today;
+                };
+
+            case "w":
+                result = getOffset()
+                console.log("d")
+                console.table(result)
+                // return dateChangeDays(today, result)
+                // return result
+
+                if (result.type === "relative") {
+                    return dateChangeDays(today, Number(result.offset))
+                } else if (result.type === "absolute") {
+                    return dateChangeDays(new Date(today.getFullYear(), 0, 1), Number(result.offset) - 1)
+                } else {
+                    return today;
+                };
+
+            default:
+                result = today
+        }
+
+        index += 1
+        // console.log("index - " + index)
+    }
+
+    return result
+
+
+    function getOffset() {
+        let posNeg = ""
+
+        if (str.length !== 1 && str !== "today") {
+            index += 1
+            if (str[index] === "+" || str[index] === "-") {
+                posNeg = str[index]
+                index += 1
+
+                let doffset = readOffset()
+                console.log(index, str.length)
+
+                if (index === str.length) {
+                    return {
+                        offset: Number(posNeg + doffset),
+                        type: "relative"
+                    }
+
+                } else {
+                    if (str[index] === "s" || str[index] === "e") {
+                        return {
+                            offset: Number(posNeg + doffset),
+                            type: "relative " + str[index]
+                        }
+                    } else {
+                        dateRelative()
+                    }
+                }
+                // return dateChangeDays(today, Number(posNeg + doffset))
+            } else {
+                if (isNumber(str[index])) {
+                    let offsetValue = readOffset()
+                    // return dateChangeDays(new Date(today.getFullYear(), 0, 1), dayNumber - 1)
+                    console.log(index, str.length)
+
+                    return {
+                        offset: Number(offsetValue),
+                        type: "absolute"
+                    }
+
+                } else {
+                    // error
+                    return {
+                        offset: 0,
+                        type: "error"
+                    }
+                }
+            }
+        } else {
+            // 'd' entered only ie today
+            return today
+        }
+    }
+
+
+
+    // given the index number and the array, it returns
+    // all the consecutive numbers
+    function readOffset() {
+        let found = theRest(str, index).split("").findIndex(cv => !isNumber(cv))
+        console.log("found - " + found, "index - " + index)
+        console.log(theRest(str, index).split(""))
+        if (found === -1) {
+            index = str.length
+            return Number(theRest(str, index))
+        }
+        console.log(str.slice(index, found))
+        index += found
+        return Number(str.slice(index, found))
+    }
+
+}
+
+
+console.log("*******************************************")
+
+function dateBuild(datestring) {
+    let str = datestring.trim()
+
+    let a, d, w, m, y
+    let todayDt = new Date()
+
+    if (datestring === "today") {
+        return {
+            d: todayDt.getDate(),
+            m: todayDt.getMonth() + 1,
+            y: (todayDt.getYear() - 100),
+            error: ""
+        }
+    }
+
+    if (countOccurrences(datestring, "A") > 1 || countOccurrences(datestring, "D") > 1 || countOccurrences(datestring, "W") > 1 || countOccurrences(datestring, "M") > 1 || countOccurrences(datestring, "Y") > 1) {
+
+        return {
+            d: todayDt.getDate(),
+            m: todayDt.getMonth() + 1,
+            y: (todayDt.getYear() - 100),
+            error: "A, D, W, M or Y has been entered more than once"
+        }
+    }
+
+
+    a = (str.match(/A[^A|^D|^W|^M|^Y]*/)) ? str.match(/A[^A|^D|^W|^M|^Y]*/)[0] : "";
+    d = (str.match(/D[^A|^D|^W|^M|^Y]*/)) ? str.match(/D[^A|^D|^W|^M|^Y]*/)[0] : "";
+    w = (str.match(/W[^A|^D|^W|^M|^Y]*/)) ? str.match(/W[^A|^D|^W|^M|^Y]*/)[0] : "";
+    m = (str.match(/M[^A|^D|^W|^M|^Y]*/)) ? str.match(/M[^A|^D|^W|^M|^Y]*/)[0] : "";
+    y = (str.match(/Y[^A|^D|^W|^M|^Y]*/)) ? str.match(/Y[^A|^D|^W|^M|^Y]*/)[0] : "";
+
+    return {
+        A: a,
+        D: d,
+        W: w,
+        M: m,
+        Y: y
+    }
+}
+
+
+console.log(dateBuild("as5AxxDbt!"))
+console.log(dateBuild("as5AxxY+1"))
+console.log(dateBuild("M-2"))
+console.log(dateBuild("Adfdas5AxxDbt!"))
+console.log(dateBuild("Yas5AxxDbt!"))
+console.log(dateBuild("YasY5AxxDbt!"))
+
+
+let dateBuilt = dateBuild("M-2")
+
+if (dateBuilt.M) {
+    console.log(dateBuilt.M)
+    let m = getOffsetNew(dateBuilt.M)
+    console.log(m)
+}
+
+
+function getOffsetNew(datepart) {
+    // which one is it - A, D, W, M, Y. It's in the first character
+    let adwmy = datepart[0]
+    let position = 1
+    let posNeg = ""
+
+    // debugger
+    if (datepart.length !== 1) {
+        if (datepart[position] === "+" || datepart[position] === "-") {
+            posNeg = datepart[position]
+            position += 1
+
+            let doffset = findConsecutiveNumbers(datepart.slice(position))
+            console.log(position, datepart.length)
+
+            if (position === datepart.length) {
+                return {
+                    datepart: adwmy,
+                    offset: Number(posNeg + doffset),
+                    type: "relative"
+                }
+
+            } else {
+                if (datepart[position] === "e") {
+                    return {
+                        offset: Number(posNeg + doffset),
+                        type: "relative " + datepart[position]
+                    }
+                } else {
+                    dateRelative()
+                }
+            }
+            // return dateChangeDays(today, Number(posNeg + doffset))
+        } else {
+            if (isNumber(datepart[position])) {
+                let offsetValue = findConsecutiveNumbers(datepart.slice(position))
+                // return dateChangeDays(new Date(today.getFullYear(), 0, 1), dayNumber - 1)
+                console.log(position, datepart.length)
+
+                return {
+                    offset: Number(offsetValue),
+                    type: "absolute"
+                }
+
+            } else {
+                // error
+                return {
+                    offset: 0,
+                    type: "error"
+                }
+            }
+        }
+    } else {
+        // 'd' entered only ie today
+        return today
+    }
+
+}
+
+
+console.log("*******************************************")
+
+// String :: Number
+// Given a string, it returns only the consecutive numbers
+// It will stop when numbers don't occur
+function findConsecutiveNumbers(stringwithnumbers) {
+    console.log("findConsecutiveNumbers - stringwithnumbers - " + stringwithnumbers)
+    let idx = 0
+    let found = [...stringwithnumbers].findIndex(cv => !isNumber(cv))
+
+    if (found === -1) {
+        return Number(stringwithnumbers)
+    }
+
+    return Number(stringwithnumbers.slice(idx, found))
 }

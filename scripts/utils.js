@@ -57,9 +57,74 @@ function keyValueToArray(obj, propertyname1, propertyname2) {
 
 
 /* ******************************************************************************
- * DOM
+ * ARRAY
  *******************************************************************************/
 
+// return from index to the end of the array
+function theRest(arr, index) {
+    let len = arr.length
+
+    if (len === 0) return []
+    if (index > len) return []
+
+    return arr.slice(index, len)
+}
+
+let arr = [10, 4, 3, 2]
+theRest(arr, 0) // [10, 4, 3, 2]
+theRest(arr, 1) // [4, 3, 2]
+theRest(arr, 3) // [2]
+theRest(arr, 8) // []
+
+
+
+
+
+
+/* ******************************************************************************
+ * NUMBER
+ *******************************************************************************/
+
+function isNumber(char) {
+    return /^\d$/.test(char);
+}
+
+
+
+/* ******************************************************************************
+ * STRING
+ *******************************************************************************/
+
+// Count the number of occurrences of a string in another one
+function countOccurrences(mainstring, searchstring) {
+    let findExp = new RegExp(searchstring, "g");
+    let count = (mainstring.match(findExp) || []).length;
+
+    return count
+}
+
+
+
+// String :: Number
+// Given a string, it returns only the consecutive numbers
+// It will stop when numbers don't occur
+function findConsecutiveNumbers(stringwithnumbers) {
+    let idx = 0
+    let found = [...stringwithnumbers].findIndex(cv => !isNumber(cv))
+
+    if (found === -1) {
+        return Number(stringwithnumbers)
+    }
+
+    return Number(stringwithnumbers.slice(idx, found))
+}
+
+
+
+
+/* ******************************************************************************
+ * DOM
+ *******************************************************************************/
 
 function appendChild(el, child) {
     return el.appendChild(child);

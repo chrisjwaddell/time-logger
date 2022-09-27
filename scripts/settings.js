@@ -15,6 +15,7 @@ const categories = ["Code-Coding", "Code-Reading", "Code-Other",
     "Health",
     "Wasted-Drunk", "Wasted-Computer",
     "Weekly", "Monthly", "Yearly",
+    "Internet banking",
     "Sleep", "Eating"
 ]
 
@@ -31,6 +32,15 @@ const settings = [{
         table: false,
         categoryGraph: true,
         hideDefault: false,
+        goal: ""
+    },
+    {
+        name: "Last week",
+        startDate: "w-1s",
+        endDate: "w-1e",
+        table: true,
+        categoryGraph: true,
+        hideDefault: true,
         goal: ""
     },
     {

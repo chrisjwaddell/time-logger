@@ -7,9 +7,15 @@ function itemEdit() {
 }
 
 
-function itemsFind(category) {
-    // function itemsFind(startdate, enddate, category) {
+function itemsFindCategory(category) {
     return objData.timesheetItems.filter(item => item.category === category)
+}
+
+function itemsFindDate(dt) {
+    let result = []
+    result = objData.timesheetItems.filter(item => item.tdate === dt)
+
+    console.table(result)
 }
 
 function itemsFind2(category) {
@@ -20,6 +26,7 @@ function itemsFind2(category) {
 function sumHours(arr) {
     return arrCC.reduce((acc, cv) => acc + cv.hours, 0)
 }
+
 
 
 let startOfData = new Date(2022, 8, 1)
