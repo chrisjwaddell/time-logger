@@ -53,3 +53,18 @@ function databaseUpdate(data) {
 
     socket.emit('timesheetupdate', objFirebase)
 }
+
+
+
+function backup() {
+    let today = new Date();
+    let backupKey = String(today.getFullYear()) + ((today.getMonth() > 8) ? String(today.getMonth() + 1) : "0" + String(today.getMonth())) + ((today.getDate() > 9) ? today.getDate() : "0" + today.getDate())
+
+    let objFirebase = {
+        key: backupKey,
+        value: JSON.stringify(objData)
+    }
+
+    socket.emit("timesheetupdate", objFirebase)
+
+}

@@ -1,20 +1,8 @@
 const isEmpty = s => !s || !s.trim();
 
-// Suggestion - trim before it
-function isDecimal(num) {
-    return /^\d+(\.\d+)?$/.test(num)
-}
-
-// isDecimal("3") // true
-// isDecimal("3.") // false
-// isDecimal("3.1") // true
-// isDecimal("3.22") // true
-// isDecimal("a3.22") // false
-// isDecimal("3.2.2") // false
-
 
 /* ******************************************************************************
- * OBJECT
+// ^OBJECT
  *******************************************************************************/
 
 function isObjectEmpty(value) {
@@ -57,7 +45,7 @@ function keyValueToArray(obj, propertyname1, propertyname2) {
 
 
 /* ******************************************************************************
- * ARRAY
+// ^ARRAY
  *******************************************************************************/
 
 // return from index to the end of the array
@@ -82,17 +70,34 @@ theRest(arr, 8) // []
 
 
 /* ******************************************************************************
- * NUMBER
+// ^NUMBER
  *******************************************************************************/
 
 function isNumber(char) {
     return /^\d$/.test(char);
 }
 
+function isNumberSign(char) {
+    return /^[+|-]*\d$/.test(char);
+}
+
+
+// Suggestion - trim before it
+function isDecimal(num) {
+    return /^\d+(\.\d+)?$/.test(num)
+}
+
+// isDecimal("3") // true
+// isDecimal("3.") // false
+// isDecimal("3.1") // true
+// isDecimal("3.22") // true
+// isDecimal("a3.22") // false
+// isDecimal("3.2.2") // false
+
 
 
 /* ******************************************************************************
- * STRING
+// ^STRING
  *******************************************************************************/
 
 // Count the number of occurrences of a string in another one
@@ -123,7 +128,7 @@ function findConsecutiveNumbers(stringwithnumbers) {
 
 
 /* ******************************************************************************
- * DOM
+// ^DOM
  *******************************************************************************/
 
 function appendChild(el, child) {
@@ -180,7 +185,7 @@ function listIndexText(parentUL, index) {
 
 
 /* ******************************************************************************
- * DATE
+// ^DATE
  *******************************************************************************/
 
 
@@ -358,7 +363,7 @@ function timeDiff(start, end) {
 
 
 /* ******************************************************************************
- * FORM
+// ^FORM
  *******************************************************************************/
 
 function requiredMsg(msg, overallmsg) {

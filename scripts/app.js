@@ -1,14 +1,4 @@
-let objData = {}
-
-let previousField = ""
-
-// selected class (SC) name for items selected in ul list
-const SC = "selected"
-
-// for testing
-let allDataSplit
-
-
+// ^ELEMENTS
 const elToday = document.querySelector(".today")
 const elYesterday = document.querySelector(".yesterday")
 const elOtherDate = document.querySelector(".date .otherdate")
@@ -22,22 +12,40 @@ const elCategoryOpt4 = document.querySelector(".category--4")
 
 const elAddBtn = document.querySelector(".btns .add")
 
-
-const startAMList = elUL[0]
-const startPMList = elUL[1]
-const startMinList = elUL[2]
-const endAMList = elUL[3]
-const endPMList = elUL[4]
-const endMinList = elUL[5]
+const startHourList = elUL[0]
+const startMinList = elUL[1]
+const endHourList = elUL[2]
+const endMinList = elUL[3]
 
 
 
 let rootElement = document.documentElement;
+let elMain = document.querySelector("main")
 let elScrollToTopBtn = document.querySelector(".scroll-arrow.top")
 let elScrollToBottomBtn = document.querySelector(".scroll-arrow.bottom")
 
 
+// ^GLOBALS
+let objData = {}
+
+let previousField = ""
+
+// selected class (SC) name for items selected in ul list
+const SC = "selected"
+
+// for testing
+let allDataSplit
+
 let SCROLL_HEIGHT
+
+
+// ^SCROLL
+
+window.addEventListener("resize", function (e) {
+    SCROLL_HEIGHT = rootElement.scrollHeight;
+})
+
+window.addEventListener("scroll", scrollBtns)
 
 elScrollToTopBtn.addEventListener("click", scrollToTop)
 elScrollToBottomBtn.addEventListener("click", scrollToBottom)
@@ -51,13 +59,9 @@ function scrollToBottom() {
     doScrolling("", SCROLL_HEIGHT - window.innerHeight, 500)
 }
 
-
 const scrollShowTop = () => (window.scrollY > (window.screen.height * 0.5))
 const scrollShowBottom = () => (window.scrollY + window.screen.height * 1.5) < SCROLL_HEIGHT;
 
-window.addEventListener("resize", function (e) {
-    SCROLL_HEIGHT = rootElement.scrollHeight;
-})
 
 function scrollBtns() {
     scrollShowTop() ? elScrollToTopBtn.classList.add("displayed") : elScrollToTopBtn.classList.remove("displayed")
@@ -65,8 +69,6 @@ function scrollBtns() {
     scrollShowBottom() ? elScrollToBottomBtn.classList.add("displayed") : elScrollToBottomBtn.classList.remove("displayed")
 
 }
-
-window.addEventListener("scroll", scrollBtns)
 
 
 // Scroll button functionality from https://stackoverflow.com/a/39494245/2065702
@@ -121,9 +123,14 @@ function doScrolling(element, targetScrollPos, duration) {
 }
 
 
-
+// ^LIST SELECTION
 const listSelectedIndex = (list) => listFindSelected(list, SC)
 const listSelectedText = (list) => listIndexText(list, listSelectedIndex(list))
+const listSelectedAMPM = (list) => listIndexAMPM(list, listSelectedIndex(list))
+
+function listIndexAMPM(parentUL, index) {
+    return parentUL.children[index] ? parentUL.children[index].dataset.ampm : ''
+}
 
 
 categories.forEach(function (category, index) {
@@ -148,6 +155,8 @@ categories.forEach(function (category, index) {
 const elCategoryItems = document.querySelectorAll(".category li")
 
 
+
+// ^DATE SELECTION
 elToday.addEventListener("click", function () {
     elYesterday.checked = 0
     elOtherDate.value = ""
@@ -167,6 +176,7 @@ elOtherDate.addEventListener("input", function () {
 })
 
 
+// Toggle on and off when an item in a list is selected
 function onListClick(e) {
     const selectedPreviously = listFindSelected(e.target.parentNode, SC)
     const selectedPreviouslyText = (selectedPreviously === -1) ? '' : e.target.parentNode.children[selectedPreviously].textContent
@@ -259,7 +269,6 @@ function listSearchItem(parentUL, selected, letter) {
 }
 
 
-
 function onListFocus(e) {
     let selected = listFindSelected(e.target, SC)
 
@@ -273,47 +282,38 @@ function onListFocus(e) {
     }
 }
 
+// The 4 time lists
 elUL.forEach((list, i) => {
     list.addEventListener("click", onListClick)
     list.addEventListener("keydown", onListPress, false)
     list.addEventListener("focus", onListFocus, false)
 
-    switch (i) {
-        case 0:
-            list.addEventListener("click", function () {
-                listUnselectAllItems(startPMList, SC)
-            })
-            break;
-        case 1:
-            list.addEventListener("click", function () {
-                listUnselectAllItems(startAMList, SC)
-            })
+    // switch (i) {
+    //     case 0:
+    //         list.addEventListener("click", function () {
+    //             listUnselectAllItems(startHourList, SC)
+    //         })
+    //         break;
+    //     case 2:
+    //         list.addEventListener("click", function () {
+    //             listUnselectAllItems(endHourList, SC)
+    //         })
 
-            break;
-        case 3:
-            list.addEventListener("click", function () {
-                listUnselectAllItems(endPMList, SC)
-            })
-
-            break;
-        case 4:
-            list.addEventListener("click", function () {
-                listUnselectAllItems(endAMList, SC)
-            })
-            break;
-    }
+    //         break;
+    // }
     listUnselectAllItems
 })
 
 
+// ^DOCUMENT EVENTS
 document.addEventListener("click", function (e) {
     previousField = document.activeElement
 })
 
 
 function DOMLoad() {
-    initialize()
     SCROLL_HEIGHT = rootElement.scrollHeight
+    initialize()
 }
 
 
@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-
+// ^FORM CHECK
 function categoryHrsValidCheck(catNo, active) {
     const val = document.querySelector(".category--" + catNo + " + input").value.trim()
 
@@ -348,7 +348,7 @@ function categoryCheck(num) {
 function categoryCheckAll() {
     let result = ""
 
-    if (!listNothingSelected(elUL[6], SC)) {
+    if (!listNothingSelected(elUL[4], SC)) {
         // Category is filled in so cat 1-4 fields must not be filled in
         // including the hours fields
 
@@ -427,7 +427,7 @@ function fieldsRequired() {
     }
 
     // Start hours
-    if (listNothingSelected(startAMList, SC) && listNothingSelected(startPMList, SC)) {
+    if (listNothingSelected(startHourList, SC)) {
         strRequired = requiredMsg("Start hour not selected", strRequired)
     }
 
@@ -437,7 +437,7 @@ function fieldsRequired() {
     }
 
     // End hours
-    if (listNothingSelected(endAMList, SC) && listNothingSelected(endPMList, SC)) {
+    if (listNothingSelected(endHourList, SC)) {
         strRequired = requiredMsg("End hour not selected", strRequired)
     }
 
@@ -463,11 +463,11 @@ function fieldsRequiredTwo(startTime, endTime) {
         strRequired = requiredMsg("Start time less than End time", strRequired)
     }
 
-    if (!listNothingSelected(endPMList, SC) && !listNothingSelected(endMinList, SC)) {
-        if (listFindSelected(endPMList, SC) === 12 && listFindSelected(endMinList, SC) !== 0) {
+    if (!listNothingSelected(endHourList, SC) && !listNothingSelected(endMinList, SC)) {
+        if (listFindSelected(endHourList, SC) === 0 && listFindSelected(endMinList, SC) !== 0) {
             strRequired = requiredMsg("End hour 0 means midnight. It must be 0:00.", strRequired)
         }
-    } else if (!listNothingSelected(startPMList, SC)) {
+    } else if (!listNothingSelected(startHourList, SC)) {
         strRequired = requiredMsg("End hour not selected", strRequired)
     }
 
@@ -475,7 +475,12 @@ function fieldsRequiredTwo(startTime, endTime) {
 }
 
 
-function dateBuild() {
+
+// ^FORM PROCESS
+
+// Returns a date in D/M/YY format depending
+// on what date checkbox was clicked
+function getDateFromForm() {
     const ONE_DAY_MS = 86400000
 
     if (elToday.checked) {
@@ -491,53 +496,48 @@ function dateBuild() {
 }
 
 
-
+// It checks the form, if that's ok, it adds the data
+// saves to database by running 'databaseUpdate',
+// clears the fields and re-renders.
 function onAdd() {
     let startTime
     let endTime
     let strRequired = fieldsRequired()
 
-    console.log(rootElement.scrollHeight)
+    // console.log(rootElement.scrollHeight)
 
     if (strRequired) {
         alert(strRequired)
 
     } else {
 
-        let dt = dateBuild()
+        let dt = getDateFromForm()
 
-        if (!listNothingSelected(startAMList, SC)) {
-            startTime = timeHMTo24Hr(listSelectedText(startAMList), listSelectedText(startMinList), "AM")
+        if (!listNothingSelected(startHourList, SC)) {
+            startTime = timeHMTo24Hr(listSelectedText(startHourList), listSelectedText(startMinList), listSelectedAMPM(startHourList))
         } else {
-            if (!listNothingSelected(startPMList, SC)) {
-                startTime = timeHMTo24Hr(listSelectedText(startPMList), listSelectedText(startMinList), "PM")
-            } else {
-                //error
-            }
+            //error
         }
 
+        // debugger
 
-        if (!listNothingSelected(endAMList, SC)) {
-            endTime = timeHMTo24Hr(listSelectedText(endAMList), listSelectedText(endMinList), "AM")
-        } else {
-            if (!listNothingSelected(endPMList, SC)) {
-                if (listSelectedText(endPMList) === "0") {
-                    endTime = timeHMTo24Hr(listSelectedText(endPMList), listSelectedText(endMinList), "AM")
-                } else {
-                    endTime = timeHMTo24Hr(listSelectedText(endPMList), listSelectedText(endMinList), "PM")
-                }
+        if (!listNothingSelected(endHourList, SC)) {
+            if (listSelectedText(endHourList) === "0") {
+                endTime = timeHMTo24Hr(listSelectedText(endHourList), listSelectedText(endMinList), listSelectedAMPM(endHourList))
             } else {
-                //error
+                endTime = timeHMTo24Hr(listSelectedText(endHourList), listSelectedText(endMinList), listSelectedAMPM(endHourList))
             }
+        } else {
+            //error
         }
 
         let category = []
         let hours = []
 
 
-        if (!listNothingSelected(elUL[6], SC)) {
-            elUL[6].children[listFindSelected(elUL[6], SC)].textContent
-            category.push = elUL[6].children[listFindSelected(elUL[6], SC)].textContent
+        if (!listNothingSelected(elUL[4], SC)) {
+            elUL[4].children[listFindSelected(elUL[4], SC)].textContent
+            category.push = elUL[4].children[listFindSelected(elUL[4], SC)].textContent
         }
 
 
@@ -545,16 +545,24 @@ function onAdd() {
         if (secondcheck) {
             alert(secondcheck)
         } else {
-            timesheetItemCreate(dt, startTime, endTime)
 
-            objData.timesheetItems.push(timesheetItemCreate(dt, startTime, endTime))
+            if (timeDiff(startTime, endTime) > 12) {
+                if (!window.confirm("This is over 12 hours. Are you sure?")) return
+            }
+
+            createTimesheetItem(dt, startTime, endTime)
+
+
+            objData.timesheetItems.push(createTimesheetItem(dt, startTime, endTime))
 
             databaseUpdate(objData)
 
             clearFields()
 
-            endAMList.focus()
+            endHourList.focus()
 
+            let s = document.querySelectorAll("main section")
+            s.forEach(cv => elMain.removeChild(cv))
             render()
 
         }
@@ -573,12 +581,8 @@ function clearFields() {
     let startPM
     let startMin
 
-    if (!listNothingSelected(endAMList, SC)) {
-        startAM = listFindSelected(endAMList, SC)
-    } else {
-        if (!listNothingSelected(endPMList, SC)) {
-            startPM = listFindSelected(endPMList, SC)
-        }
+    if (!listNothingSelected(endHourList, SC)) {
+        startPM = listFindSelected(endHourList, SC)
     }
 
     if (!listNothingSelected(endMinList, SC)) {
@@ -592,8 +596,6 @@ function clearFields() {
     listUnselectAllItems(elUL[2], SC)
     listUnselectAllItems(elUL[3], SC)
     listUnselectAllItems(elUL[4], SC)
-    listUnselectAllItems(elUL[5], SC)
-    listUnselectAllItems(elUL[6], SC)
     elCategoryOpt1.value = ""
     elCategoryOpt2.value = ""
     elCategoryOpt3.value = ""
@@ -606,12 +608,8 @@ function clearFields() {
     document.querySelector(".description-input").value = ""
 
 
-    if (startAM !== null && startAM !== undefined) {
-        startAMList.children[startAM].classList.add(SC)
-    } else {
-        if (startPM !== null && startPM !== undefined) {
-            startPMList.children[startPM].classList.add(SC)
-        }
+    if (startPM !== null && startPM !== undefined) {
+        startHourList.children[startPM].classList.add(SC)
     }
     if (startMin !== null && startMin !== undefined) {
         startMinList.children[startMin].classList.add(SC)
@@ -619,7 +617,13 @@ function clearFields() {
 }
 
 
-function timesheetItemCreate(date, starttime, endtime) {
+
+
+// Read the data from the form and enter it into
+// objects. Save the timesheet item
+// The result gets pushed to objData.timesheetItems
+// objData gets saved when onAdd runs databaseUpdate(objData)
+function createTimesheetItem(date, starttime, endtime) {
     const tdate = date
     const tsd = starttime
     const ted = endtime
@@ -630,8 +634,8 @@ function timesheetItemCreate(date, starttime, endtime) {
     const description = (document.querySelector(".description-input").value.trim()) ? document.querySelector(".description-input").value.trim() : ''
 
 
-    if (listSelectedText(elUL[6])) {
-        category.push(listSelectedText(elUL[6]))
+    if (listSelectedText(elUL[4])) {
+        category.push(listSelectedText(elUL[4]))
         hours.push(timeDiff(starttime, endtime))
     } else {
         if (!isEmpty(elCategoryOpt1.value)) {
@@ -669,128 +673,31 @@ function timesheetItemCreate(date, starttime, endtime) {
 }
 
 
-function timesheetSearch(startDate, endDate) {
-    // return objData.timesheetItems.filter(cv => datedmyyToDDMMYY(cv.tdate, "/") >= startDate && datedmyyToDDMMYY(cv.tdate, "/") <= endDate)
-    return objData.timesheetItems.filter(cv => dmyyToDate(...cv.tdate.split("/")) >= startDate && dmyyToDate(...cv.tdate.split("/")) <= endDate)
+
+
+
+// ^TIMESHEET ITEM OPERATIONS
+
+// Start and end dates take Javascript Date objects
+// return Timesheet items that are between 2 dates
+function getTimesheetItemsByStartAndEndDate(startDate, endDate) {
+    return objData.timesheetItems.filter(cv => (dmyyToDate(...cv.tdate.split("/")) >= startDate) && (dmyyToDate(...cv.tdate.split("/")) <= endDate))
 }
-
-
-let chartThisWeek
-let chartThisMonth
-let chartLast90Days
-
-
-function render() {
-
-    let categoriesSortedByHours
-
-    let today = new Date();
-
-    // today = dateChangeDays(today, -1)
-    // console.log(today)
-
-    // each timesheet item is searched on the date only so make hours and mins zero
-    let todaySearch = startOfDay(today);
-
-
-    // Today
-    let timesheetCategory = timesheetCategorySplitGenerate(todaySearch, todaySearch)
-
-
-    // Table
-    const elTodayTable = document.querySelector(".today tbody")
-
-    timesheetCategory.map(cv => insertIntoTable(elTodayTable, cv, false))
-
-
-
-    // THIS WEEK
-    let thisWeek = startOfDay(startOfWeek(today))
-
-    let timesheetCategoryThisWeek = timesheetCategorySplitGenerate(thisWeek, todaySearch)
-
-
-    // Table
-    const elThisWeekTable = document.querySelector(".thisweek tbody")
-
-    // returns an array of objects
-    timesheetCategoryThisWeek.map(cv => cv.day = dmyyToDate(...cv.tdate.split("/"), "/").toString().slice(0, 3))
-    timesheetCategoryThisWeek.map(cv => insertIntoTable(elThisWeekTable, cv, true))
-
-
-    // Graph
-    const ctxThisWeek = document.getElementById('thisWeekChart').getContext('2d');
-
-    let catSum = categorySum(timesheetCategoryThisWeek)
-
-    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
-    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
-
-    if (chartThisWeek) {
-        chartThisWeek.destroy();
-    }
-    chartThisWeek = drawChart(ctxThisWeek, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
-
-
-
-    // THIS MONTH
-    let thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-    let timesheetCategoryThisMonth = timesheetCategorySplitGenerate(thisMonth, todaySearch)
-
-    // Graph
-    const ctxThisMonth = document.getElementById('thisMonthChart').getContext('2d');
-
-    catSum = categorySum(timesheetCategoryThisMonth)
-
-    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
-    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
-
-
-    if (chartThisMonth) {
-        chartThisMonth.destroy();
-    }
-    chartThisMonth = drawChart(ctxThisMonth, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
-
-
-
-    // LAST 90 DAYS
-    let last90Days = startOfDay(dateChangeDays(today, -90));
-
-    let timesheetCategoryLast90Days = timesheetCategorySplitGenerate(last90Days, todaySearch)
-    console.log(timesheetCategoryLast90Days)
-
-
-    // Graph
-    const ctxLast90Days = document.getElementById('last90DaysChart').getContext('2d');
-
-    catSum = categorySum(timesheetCategoryLast90Days)
-    console.log(catSum)
-
-    // console.log(keyValueToArray(catSum, "category", "hours").sort(by("hours", true)))
-    categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
-
-
-    let chartLast90Days
-
-    if (chartLast90Days) {
-        chartLast90Days.destroy();
-    }
-    chartLast90Days = drawChart(ctxLast90Days, categoriesSortedByHours.map(cv => Object.values(cv)[0]), categoriesSortedByHours.map(cv => Object.values(cv)[1]))
-
-}
-
 
 
 function categorySum(arr) {
     return arr.reduce((acc, curr) => (acc[curr.category] = acc[curr.category] + curr.hours || curr.hours, acc), {})
 }
 
+
+// Start and end dates are Date objects
+// Some items can have more than one category, this splits it out
+// This has more items in it than a timesheetItem
 function timesheetCategorySplitGenerate(startDate, endDate) {
     // let today = new Date();
     // let todaySearch = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
 
-    let arrTimesheetsMatched = timesheetSearch(startDate, endDate);
+    let arrTimesheetsMatched = getTimesheetItemsByStartAndEndDate(startDate, endDate);
 
     timesheetCategory = []
     arrTimesheetsMatched.forEach(timesheet => {
@@ -822,7 +729,192 @@ function timesheetItemsSplitCategory(timesheetItem) {
 }
 
 
-function insertIntoTable(table, timesheetCategoryItem, includeDate) {
+
+// ^DOM
+
+function render() {
+    const randomBackup = () => Math.floor(Math.random() * 20);
+    if (randomBackup() === 1) {
+        let r = confirm("Backup data?");
+        if (r == true) {
+            backup()
+        }
+    }
+
+
+    createAllSections()
+}
+
+
+function generateCategoryColorList(categoryList, opacity) {
+    return categoryList.reduce((acc, cv) => ([...acc, `rgba(${categoryColor(cv).r}, ${categoryColor(cv).g}, ${categoryColor(cv).b}, ${opacity})`]), [])
+}
+
+function categoryColor(category) {
+    let i = categories.findIndex(cat => cat === category);
+    return categoryColors[i] || categoryColors[0]
+}
+
+
+function drawChart(chart, categories, hours, colors, bordercolors) {
+    // chart.clear()
+    // alert(categories)
+
+    const myChart = new Chart(chart, {
+        type: 'bar',
+        data: {
+            labels: categories,
+            datasets: [{
+                // label: '# of Votes',
+                data: hours,
+                backgroundColor: colors,
+                borderColor: bordercolors,
+                // backgroundColor: [
+                //     'rgba(255, 99, 132, 0.2)',
+                //     'rgba(54, 162, 235, 0.2)',
+                //     'rgba(255, 206, 86, 0.2)',
+                //     'rgba(75, 192, 192, 0.2)',
+                //     'rgba(153, 102, 255, 0.2)',
+                //     'rgba(255, 159, 64, 0.2)'
+                // ],
+                // borderColor: [
+                //     'rgba(255, 99, 132, 1)',
+                //     'rgba(54, 162, 235, 1)',
+                //     'rgba(255, 206, 86, 1)',
+                //     'rgba(75, 192, 192, 1)',
+                //     'rgba(153, 102, 255, 1)',
+                //     'rgba(255, 159, 64, 1)'
+                // ],
+                borderWidth: 4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: true,
+        }
+    });
+
+    return myChart
+
+}
+
+
+
+function createAllSections() {
+
+    settings.map(cv => createSection(cv))
+
+}
+
+
+// This is the main function to create the section
+// It looks at the settings and finds the startDate and endDate
+// It gets the timesheetItem data for those dates
+// It creates a tables (if table: true),
+// graph (if categoryGraph: true)
+// This is in a loop of settings
+function createSection(sectionobj) {
+
+    if (sectionobj.enabled) {
+        const elSection = createSectionTag(sectionobj)
+
+        const timesheetItemCategoryData = timesheetCategorySplitGenerate(sectionobj.startDate, sectionobj.endDate)
+
+        // debugger
+        if (sectionobj.categoryGraph) {
+            const elGraph = createGraphTag(elSection)
+            const ctxGraph = elGraph.getContext('2d');
+
+            // let categoryColorList = generateCategoryColorList(1)
+            // let categoryColorBorderList = generateCategoryColorList(0.2)
+
+            let catSum = categorySum(timesheetItemCategoryData)
+
+            let categoriesSortedByHours = keyValueToArray(catSum, "category", "hours").sort(by("hours", true))
+
+            let cats = categoriesSortedByHours.map(cv => Object.values(cv)[0])
+            let hrs = categoriesSortedByHours.map(cv => Object.values(cv)[1])
+
+            // colors for the graph
+            let colorList = generateCategoryColorList(cats, 0.2);
+            let colorBorderList = generateCategoryColorList(cats, 1);
+
+
+            let chart = drawChart(ctxGraph, cats, hrs, colorList, colorBorderList)
+        }
+
+
+        if (sectionobj.table) {
+            let inclDate = !(sectionobj.name === "Today")
+            const frag = createTableFragment(inclDate)
+            elSection.appendChild(frag)
+
+            const elSectionTags = [...elSection.childNodes];
+
+            const elTable = elSectionTags.filter(cv => cv.nodeName === "TABLE")[0]
+            insertTableData(elTable.children[1], timesheetItemCategoryData, inclDate)
+        }
+
+    }
+}
+
+
+
+// Creates a section tag with title and goal
+function createSectionTag(sectionobj) {
+    const elSection = createElementAtt(elMain, "section", [], [], "")
+
+    createElementAtt(elSection, "h3", [], [], sectionobj.name)
+
+    if (sectionobj.goal[0])
+        createElementAtt(elSection, "h4", ["target"], [], "Target")
+
+    sectionobj.goal.forEach((goalItem, i) => {
+        if (goalItem)
+            createElementAtt(elSection, "p", ["target"], [], goalItem)
+    })
+
+    return elSection
+}
+
+
+// A table has a few elements in it to create columns
+// A fragment is used to create the backbone
+// structure of the table
+function createTableFragment(includedate) {
+    const frag = document.createDocumentFragment();
+    const elTable = document.createElement("table")
+    // const elTable = createElementAtt(frag, "table", [], [], "")
+    const elThead = createElementAtt(elTable, "thead", [], [], "")
+    const elTR = createElementAtt(elThead, "tr", [], [], "")
+    if (includedate) {
+        createElementAtt(elTR, "th", ["date"], [], "Date")
+        createElementAtt(elTR, "th", ["day"], [], "Day")
+    }
+    createElementAtt(elTR, "th", ["times"], [], "Times")
+    createElementAtt(elTR, "th", ["category"], [], "Category")
+    createElementAtt(elTR, "th", ["description"], [], "Description")
+    const elTbody = createElementAtt(elTable, "tbody", [], [], "")
+    createElementAtt(elTbody, "tr", [], [], "")
+    frag.appendChild(elTable)
+
+    return frag
+}
+
+
+
+function insertTableData(tbl, timesheetCategoryData, includeDate) {
+    if (includeDate)
+        timesheetCategoryData.map(cv => cv.day = dmyyToDate(...cv.tdate.split("/"), "/").toString().slice(0, 3))
+    timesheetCategoryData.map(cv => insertTableItem(tbl, cv, includeDate))
+}
+
+function insertTableItem(table, timesheetCategoryItem, includeDate) {
     let elTr = createElementAtt(table, "tr", [], [])
 
     if (includeDate) {
@@ -850,50 +942,23 @@ function insertIntoTable(table, timesheetCategoryItem, includeDate) {
 
 }
 
+function createGraphTag(parent) {
+    const elDiv = createElementAtt(parent, "div", ["o-container"], [], "")
+    const elGraph = createElementAtt(elDiv, "canvas", [], [
+        ["width", "100%"]
+    ], "")
 
-function drawChart(chart, categories, hours) {
-    // chart.clear()
-
-    const myChart = new Chart(chart, {
-        type: 'bar',
-        data: {
-            labels: categories,
-            datasets: [{
-                // label: '# of Votes',
-                data: hours,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 4
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            responsive: true,
-            maintainAspectRatio: true,
-        }
-    });
-
-    return myChart
-
+    return elGraph
 }
+
+
+
+
+
+
+
+
+// ^DATE FUNCTIONS MAYBE GET RID OF
 
 // Choosing dates relative to today
 function dateRelative(dtString) {
@@ -1002,6 +1067,7 @@ function dateRelative(dtString) {
     // given the index number and the array, it returns
     // all the consecutive numbers
     function readOffset() {
+        //theRest - I think I can remove it and just use .slice
         let found = theRest(str, index).split("").findIndex(cv => !isNumber(cv))
         console.log("found - " + found, "index - " + index)
         console.log(theRest(str, index).split(""))

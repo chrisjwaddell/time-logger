@@ -1,3 +1,12 @@
 /src/node_modules
-/src/scripts/firebase.js
-/src/scripts/settings.js
+.gitignore
+/.vscode
+# /scripts/log.js
+/scripts/firebase.js
+/scripts/settings.js
+
+/scripts/new
+/scripts/old
+/index-old.html
+
+/scripts/log.js
