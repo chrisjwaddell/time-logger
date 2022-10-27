@@ -128,6 +128,8 @@ const listSelectedIndex = (list) => listFindSelected(list, SC)
 const listSelectedText = (list) => listIndexText(list, listSelectedIndex(list))
 const listSelectedAMPM = (list) => listIndexAMPM(list, listSelectedIndex(list))
 
+// is data-AMPM set to "AM" or "PM"
+// If there is a list index, return the data-AMPM value
 function listIndexAMPM(parentUL, index) {
     return parentUL.children[index] ? parentUL.children[index].dataset.ampm : ''
 }
@@ -464,14 +466,16 @@ function fieldsRequiredTwo(startTime, endTime) {
     }
 
     if (!listNothingSelected(endHourList, SC) && !listNothingSelected(endMinList, SC)) {
-        if (listFindSelected(endHourList, SC) === 0 && listFindSelected(endMinList, SC) !== 0) {
-            strRequired = requiredMsg("End hour 0 means midnight. It must be 0:00.", strRequired)
-        }
-    } else if (!listNothingSelected(startHourList, SC)) {
-        strRequired = requiredMsg("End hour not selected", strRequired)
-    }
+        if (listFindSelected(startHourList, SC) === 0 && listFindSelected(startMinList, SC) === 0) {
 
-    return strRequired
+        } else if (listFindSelected(endHourList, SC) === 0 && listFindSelected(endMinList, SC) !== 0) {
+            strRequired = requiredMsg("End hour 0 means midnight. It must be 0:00.", strRequired)
+            // } else if (!listNothingSelected(startHourList, SC)) {
+            //     strRequired = requiredMsg("End hour not selected", strRequired)
+        }
+
+        return strRequired
+    }
 }
 
 

@@ -1,280 +1,90 @@
-const categories = ["Code-Coding", "Code-Reading", "Code-Other",
-    "Shopping", "Cooking", "Cleaning", "Chores", "Chores-Mum",
-    "Timesheet", "Morning routine", "Review",
+const categories = [
+    "Exercise - Running",
+    "Exercise - Bush walking",
+    "Work",
+    "Kids",
+    "Meeting friends",
+    "Shopping",
+    "Chores",
     "Reading",
-    "Mind-Meditate", "Mind-Projects", "Mind-Brainstorm", "Mind-Thought experiments", "Mind-Other",
-    "Exercise-Walk", "Exercise",
-    "Social-Chats-Phone", "Social-Going out",
-    "SH-Podcast", "SH",
-    "Podcast-Misc",
-    "TV-YT",
-    "Sport-League", "Sport-Cricket", "Sport-Boxing", "Sport-Other",
     "Relaxing",
-    "Misc",
-    "Internet banking", "Investing", "Financial",
-    "Health",
-    "Wasted-Drunk", "Wasted-Computer", "Waste-General",
-    "Weekly", "Monthly", "Yearly",
-    "Sleep", "Eating"
+    "TV"
 ]
-
-
 
 
 // These colors correspond to the categories
 const categoryColors = [
-    // code
-    {
-        r: 255,
-        g: 100,
-        b: 20
-    },
-    {
-        r: 255,
-        g: 100,
-        b: 20
-    },
-    {
-        r: 255,
-        g: 100,
-        b: 20
-    },
-
-    // chores
-    {
-        r: 150,
-        g: 0,
-        b: 200
-    },
-    {
-        r: 150,
-        g: 0,
-        b: 200
-    },
-    {
-        r: 150,
-        g: 0,
-        b: 200
-    },
-    {
-        r: 150,
-        g: 0,
-        b: 200
-    },
-    {
-        r: 150,
-        g: 0,
-        b: 200
-    },
-
-    // Daily stuff
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-
-    // reading
-    {
-        r: 220,
-        g: 140,
-        b: 0
-    },
-
-    // Mind
-    {
-        r: 75,
-        g: 0,
-        b: 155
-    },
-    {
-        r: 75,
-        g: 0,
-        b: 155
-    },
-    {
-        r: 75,
-        g: 0,
-        b: 155
-    },
-    {
-        r: 75,
-        g: 0,
-        b: 155
-    },
-    {
-        r: 75,
-        g: 0,
-        b: 155
-    },
-
     // Exercise
     {
+        r: 255,
+        g: 100,
+        b: 20
+    },
+    {
+        r: 255,
+        g: 150,
+        b: 20
+    },
+
+    // Work
+    {
         r: 150,
         g: 0,
         b: 200
     },
+
+    // Kids
     {
-        r: 150,
-        g: 0,
-        b: 200
+        r: 40,
+        g: 150,
+        b: 150
     },
 
-    // Social
-    {
-        r: 25,
-        g: 240,
-        b: 55
-    },
-    {
-        r: 25,
-        g: 240,
-        b: 55
-    },
 
-    // SH
+    // Meeting friends
     {
-        r: 100,
-        g: 40,
-        b: 175
-    },
-    {
-        r: 100,
-        g: 40,
-        b: 175
-    },
-
-    // Podcasts
-    {
-        r: 100,
-        g: 40,
-        b: 175
-    },
-
-    // TV, YT
-    {
-        r: 220,
-        g: 220,
-        b: 0
-    },
-
-    // Sport
-    {
-        r: 120,
-        g: 220,
-        b: 70
-    },
-    {
-        r: 120,
-        g: 220,
-        b: 70
-    },
-    {
-        r: 120,
-        g: 220,
-        b: 70
-    },
-    {
-        r: 120,
-        g: 220,
-        b: 70
-    },
-
-    // Relax
-    {
-        r: 220,
-        g: 220,
-        b: 0
-    },
-
-    // Misc
-    {
-        r: 170,
+        r: 50,
         g: 140,
-        b: 150
+        b: 0
     },
 
-    // Financial
+    // Shopping
     {
-        r: 20,
-        g: 60,
-        b: 200
-    },
-    {
-        r: 20,
-        g: 60,
-        b: 200
-    },
-    {
-        r: 20,
-        g: 60,
-        b: 200
+        r: 180,
+        g: 50,
+        b: 0
     },
 
-    // Health
+
+    // Chores
+    {
+        r: 180,
+        g: 50,
+        b: 100
+    },
+
+    // Reading
+    {
+        r: 0,
+        g: 150,
+        b: 50
+    },
+    // Relaxing
+    {
+        r: 50,
+        g: 150,
+        b: 50
+    },
+
+    // TV
     {
         r: 150,
-        g: 0,
-        b: 200
-    },
-
-    // Wasted
-    {
-        r: 240,
-        g: 0,
-        b: 40
-    },
-    {
-        r: 240,
-        g: 0,
-        b: 40
-    },
-    {
-        r: 240,
-        g: 0,
-        b: 40
-    },
-
-    // Weekly, Monthly, Yearly
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-    {
-        r: 40,
-        g: 150,
-        b: 150
-    },
-
-    // Sleep, eat
-    {
-        r: 240,
         g: 100,
-        b: 0
-    },
-    {
-        r: 240,
-        g: 100,
-        b: 0
+        b: 150
     }
 
 ];
+
 
 
 // You should start with "Today". If 'name' is 'Today', it automatically
@@ -292,10 +102,7 @@ const settings = [{
         table: true,
         categoryGraph: true,
         hideDefault: false,
-        goal: ["Code-Coding - 6-10 Hrs",
-            "Code-Total - 8-10 Hrs",
-            "Every chat, be funny"
-        ]
+        goal: ["Daily goal - 30 mins exercise"]
     },
     {
         enabled: true,
@@ -309,7 +116,7 @@ const settings = [{
         table: true,
         categoryGraph: true,
         hideDefault: false,
-        goal: []
+        goal: ["Daily goal - 30 mins exercise"]
 
     },
     {
@@ -325,16 +132,7 @@ const settings = [{
         categoryGraph: true,
         hideDefault: false,
         goal: [
-            "Code-Coding - 40 Hrs",
-            "Code-Total - 60-65 Hrs",
-            "Wasted-Drunk - less than 7 Hrs",
-            "Reading - More than 5 hrs",
-            "Txt files - More than 1 hr",
-            "Podcasts - More than 2 hrs",
-            "TV - Less than 3 hours esp bad TV",
-            "Its quality of time, not quantity of time",
-            "Put in hrs of TV watches esp Sunday night",
-            "Every chat, be funny"
+            "Exercise - 4 hours"
         ]
 
     },
@@ -353,14 +151,25 @@ const settings = [{
         categoryGraph: true,
         hideDefault: true,
         goal: [
-            "Code-Coding - 40 Hrs",
-            "Code-Total - 60-65 Hrs",
-            "Wasted-Drunk - less than 7 Hrs",
-            "Reading - More than 5 hrs",
-            "Txt files - More than 1 hr",
-            "Podcasts - More than 2 hrs",
-            "TV - Less than 3 hours esp bad TV",
-            "Its quality of time, not quantity of time"
+            "Exercise - 4 hours"
+        ]
+    },
+    {
+        enabled: true,
+        name: "Two weeks ago",
+        startDate: BlueMoon({
+            day: "mon",
+            week: "-2"
+        }),
+        endDate: BlueMoon({
+            day: "sun",
+            week: "-2"
+        }),
+        table: true,
+        categoryGraph: true,
+        hideDefault: true,
+        goal: [
+            "Exercise - 4 hours"
         ]
     },
     {
@@ -376,15 +185,8 @@ const settings = [{
         categoryGraph: true,
         hideDefault: false,
         goal: [
-            "Code-Coding - 175 Hrs",
-            "Code-Total - 260 Hrs",
-            "Wasted-Drunk - less than 25 Hrs",
-            "Sport - 20 hrs max",
-            "Cooking - 16 hrs",
-            "Shopping - 14 hrs",
-            "Cleaning - 12 hrs",
-            "Reading - 28 hrs or more",
-            "TV - cut down on murder TV and negative stuff. I don't get a lot of value out of TV. Books are much better."
+            "Exercise - 16 hours",
+            "Reading - 20 hours"
         ]
     },
     {
@@ -402,15 +204,8 @@ const settings = [{
         categoryGraph: true,
         hideDefault: true,
         goal: [
-            "Code-Coding - 175 Hrs",
-            "Code-Total - 260 Hrs",
-            "Wasted-Drunk - less than 25 Hrs",
-            "Sport - 20 hrs max",
-            "Cooking - 16 hrs",
-            "Shopping - 14 hrs",
-            "Cleaning - 12 hrs",
-            "Reading - 28 hrs or more",
-            "TV - cut down on murder TV and negative stuff. I don't get a lot of value out of TV. Books are much better."
+            "Exercise - 16 hours",
+            "Reading - 20 hours"
         ]
     },
     {
@@ -428,15 +223,8 @@ const settings = [{
         categoryGraph: true,
         hideDefault: true,
         goal: [
-            "Code-Coding - 175 Hrs",
-            "Code-Total - 260 Hrs",
-            "Wasted-Drunk - less than 25 Hrs",
-            "Sport - 20 hrs max",
-            "Cooking - 16 hrs",
-            "Shopping - 14 hrs",
-            "Cleaning - 12 hrs",
-            "Reading - 28 hrs or more",
-            "TV - cut down on murder TV and negative stuff. I don't get a lot of value out of TV. Books are much better."
+            "Exercise - 16 hours",
+            "Reading - 20 hours"
         ]
     },
     {
@@ -451,6 +239,6 @@ const settings = [{
         table: false,
         categoryGraph: true,
         hideDefault: false,
-        goal: ["Code-Coding - 515 Hrs", "Code-Total - 770 Hrs", "Wasted-Drunk - less than 75 Hrs"]
+        goal: ["Exercise - 40 hours"]
     }
 ]
