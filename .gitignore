@@ -1,11 +1,7 @@
 /src/node_modules
 .gitignore
 /.vscode
-# /scripts/log.js
-/scripts/firebase.js
 
-/scripts/new
-/scripts/old
-/index-old.html
+/scripts/firebase.js
 
 /scripts/log.js
