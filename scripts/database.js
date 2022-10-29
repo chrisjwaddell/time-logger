@@ -1,20 +1,27 @@
 async function initialize() {
-    try {
-        objData = ls.get("time-logger-data")
-    } catch (err) {
-        objData = {}
+
+    if (!ls.supported) {
+        alert("localStorage is not supported. Unfortunetely, you can't use Time-logger")
+    } else {
+
+
+        try {
+            objData = ls.get("time-logger-data")
+        } catch (err) {
+            objData = {}
+        }
+
+        console.log(objData)
+
+        render()
+
+        // for testing
+        allDataSplit = timesheetCategorySplitGenerate(startOfData, today)
+
+        SCROLL_HEIGHT = rootElement.scrollHeight;
+        // console.log(SCROLL_HEIGHT)
+
     }
-
-    console.log(objData)
-
-    render()
-
-    // for testing
-    allDataSplit = timesheetCategorySplitGenerate(startOfData, today)
-
-    SCROLL_HEIGHT = rootElement.scrollHeight;
-    // console.log(SCROLL_HEIGHT)
-
 
 }
 
