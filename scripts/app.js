@@ -679,7 +679,6 @@ function createTimesheetItem(date, starttime, endtime) {
 
 
 
-
 // ^TIMESHEET ITEM OPERATIONS
 
 // Start and end dates take Javascript Date objects
