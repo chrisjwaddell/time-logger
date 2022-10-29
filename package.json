@@ -4,7 +4,7 @@
     "description": "\"Log your time categories so you can track where you spend your time\"",
     "main": "index.html",
     "scripts": {
-        "build": "webpack --config webpack.config.prod.js",
+        "build": "webpack --config webpack.config.prod.js"
     },
     "repository": {
         "type": "git",
