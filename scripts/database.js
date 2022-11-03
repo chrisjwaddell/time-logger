@@ -25,7 +25,8 @@ async function initialize() {
 
 }
 
-function databaseUpdate(data) {
+function databaseUpdate(item, data) {
+    data.timesheetItems.push(item)
     ls.set("time-logger-data", data)
 }
 

@@ -458,7 +458,7 @@ function fieldsRequired() {
 // This is a second part done only if it passes the first part
 // It checks if end time is greater than start time
 function fieldsRequiredTwo(startTime, endTime) {
-    console.log(startTime, endTime)
+    // console.log(startTime, endTime)
     let strRequired = ""
 
     if (timeDiff(startTime, endTime) === -1 || timeDiff(startTime, endTime) === 0) {
@@ -472,6 +472,21 @@ function fieldsRequiredTwo(startTime, endTime) {
             strRequired = requiredMsg("End hour 0 means midnight. It must be 0:00.", strRequired)
             // } else if (!listNothingSelected(startHourList, SC)) {
             //     strRequired = requiredMsg("End hour not selected", strRequired)
+        }
+
+        // Check the time is not in the future
+        let hr = Number(listSelectedText(startHourList))
+
+        if ((listSelectedAMPM(startHourList)) === "PM") {
+            hr += 12
+        }
+
+        if (elToday.checked) {
+            let nowHr = new Date().getHours()
+
+            if (nowHr < hr) {
+                strRequired = requiredMsg("The time is in the future", strRequired)
+            }
         }
 
         return strRequired
@@ -554,12 +569,9 @@ function onAdd() {
                 if (!window.confirm("This is over 12 hours. Are you sure?")) return
             }
 
-            createTimesheetItem(dt, startTime, endTime)
+            let item = createTimesheetItem(dt, startTime, endTime)
 
-
-            objData.timesheetItems.push(createTimesheetItem(dt, startTime, endTime))
-
-            databaseUpdate(objData)
+            databaseUpdate(item, objData)
 
             clearFields()
 
@@ -592,8 +604,6 @@ function clearFields() {
     if (!listNothingSelected(endMinList, SC)) {
         startMin = listFindSelected(endMinList, SC)
     }
-
-    console.log(startAM, startPM, startMin)
 
     listUnselectAllItems(elUL[0], SC)
     listUnselectAllItems(elUL[1], SC)

@@ -45,7 +45,9 @@ function initialize() {
 
 
 
-function databaseUpdate(data) {
+function databaseUpdate(item, data) {
+    data.timesheetItems.push(item)
+
     objFirebase = {
         key: "Main",
         value: JSON.stringify(data)
