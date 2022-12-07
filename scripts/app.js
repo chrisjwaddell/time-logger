@@ -478,7 +478,8 @@ function fieldsRequiredTwo(startTime, endTime) {
         let hr = Number(listSelectedText(startHourList))
 
         if ((listSelectedAMPM(startHourList)) === "PM") {
-            hr += 12
+            if (Number(listSelectedText(startHourList)) !== 12)
+                hr += 12
         }
 
         if (elToday.checked) {
@@ -636,7 +637,7 @@ function clearFields() {
 // Read the data from the form and enter it into
 // objects. Save the timesheet item
 // The result gets pushed to objData.timesheetItems
-// objData gets saved when onAdd runs databaseUpdate(objData)
+// objData gets saved when onAdd runs databaseUpdate(item, objData)
 function createTimesheetItem(date, starttime, endtime) {
     const tdate = date
     const tsd = starttime
