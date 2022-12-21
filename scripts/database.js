@@ -9,25 +9,28 @@ async function initialize() {
             objData = ls.get("time-logger-data")
         } catch (err) {
             objData = {}
+            objData.timesheetItems = []
         }
 
-        console.log(objData)
+        if (objData) {
+            render()
 
-        render()
+            // for testing
+            allDataSplit = timesheetCategorySplitGenerate(startOfData, today)
 
-        // for testing
-        allDataSplit = timesheetCategorySplitGenerate(startOfData, today)
-
-        SCROLL_HEIGHT = rootElement.scrollHeight;
-        // console.log(SCROLL_HEIGHT)
-
+            SCROLL_HEIGHT = rootElement.scrollHeight;
+            // console.log(SCROLL_HEIGHT)
+        } else {
+            objData = {}
+            objData.timesheetItems = []
+        }
     }
 
 }
 
 function databaseUpdate(item, data) {
-    data.timesheetItems.push(item)
-    ls.set("time-logger-data", data)
+    let result = ls.set("time-logger-data", data)
+    return (result === false) ? false : true 
 }
 
 
