@@ -1,7 +1,11 @@
-/src/node_modules
+/node_modules
 .gitignore
 /.vscode
 
 /scripts/firebase.js
+/scripts/dom-tree.js
 
 /scripts/log.js
+
+webpack.config.prod.js
+

@@ -33,15 +33,12 @@ let previousField = ""
 // selected class (SC) name for items selected in ul list
 const SC = "selected"
 
-// for testing
-let allDataSplit
-
 let SCROLL_HEIGHT
 
 
 // ^SCROLL
 
-window.addEventListener("resize", function (e) {
+window.addEventListener("resize", function () {
     SCROLL_HEIGHT = rootElement.scrollHeight;
 })
 
@@ -94,7 +91,7 @@ function doScrolling(element, targetScrollPos, duration) {
         if (t < 1) return c / 2 * t * t + b;
         t--;
         return -c / 2 * (t * (t - 2) - 1) + b;
-    };
+    }
 
 
     var start
@@ -110,7 +107,7 @@ function doScrolling(element, targetScrollPos, duration) {
         var percent = Math.min(time / duration, 1)
         // Apply the easing.
         // It can cause bad-looking slow frames in browser performance tool, so be careful.
-        percent = easing(percent)
+        easing(percent)
 
         var iterationPos = easeInOutQuad(time, startingY, diff, duration)
         window.scrollTo(0, iterationPos)
@@ -314,8 +311,8 @@ document.addEventListener("click", function (e) {
 
 
 function DOMLoad() {
-    SCROLL_HEIGHT = rootElement.scrollHeight
     initialize()
+    SCROLL_HEIGHT = rootElement.scrollHeight
 }
 
 
@@ -572,15 +569,19 @@ function onAdd() {
 
             let item = createTimesheetItem(dt, startTime, endTime)
 
-            databaseUpdate(item, objData)
+            objData.timesheetItems.push(item)
 
-            clearFields()
+            let du = databaseUpdate(item, objData)
 
-            endHourList.focus()
+            if (du) {
+                clearFields()
 
-            let s = document.querySelectorAll("main section")
-            s.forEach(cv => elMain.removeChild(cv))
-            render()
+                endHourList.focus()
+
+                let s = document.querySelectorAll("main section")
+                s.forEach(cv => elMain.removeChild(cv))
+                render()
+            }
 
         }
     }
@@ -994,25 +995,25 @@ function dateRelative(dtString) {
                     return dateChangeDays(new Date(today.getFullYear(), 0, 1), Number(result.offset) - 1)
                 } else {
                     return today;
-                };
+                }
 
-            case "w":
-                result = getOffset()
-                console.log("d")
-                console.table(result)
-                // return dateChangeDays(today, result)
-                // return result
+                case "w":
+                    result = getOffset()
+                    console.log("d")
+                    console.table(result)
+                    // return dateChangeDays(today, result)
+                    // return result
 
-                if (result.type === "relative") {
-                    return dateChangeDays(today, Number(result.offset))
-                } else if (result.type === "absolute") {
-                    return dateChangeDays(new Date(today.getFullYear(), 0, 1), Number(result.offset) - 1)
-                } else {
-                    return today;
-                };
+                    if (result.type === "relative") {
+                        return dateChangeDays(today, Number(result.offset))
+                    } else if (result.type === "absolute") {
+                        return dateChangeDays(new Date(today.getFullYear(), 0, 1), Number(result.offset) - 1)
+                    } else {
+                        return today;
+                    }
 
-            default:
-                result = today
+                    default:
+                        result = today
         }
 
         index += 1
