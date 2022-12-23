@@ -6,5 +6,8 @@ You can set up any category. There are categories such as Work, Exercise, Social
 
 Graphs let you see a clear picture of where you spend your time.
 
-![Sync List File list](./img/yesterday.jpg)
-![Sync List File list](https://github.com/chrisjwaddell/Sync-List/blob/main/img/yesterday.jpg)
+![Yesterday graph](./img/yesterday.jpg)
+
+
+You can have as many sections as you want. You set the start and end date eg start of the month and end of the month. You can set goals for each section.
+![This week graph](./img/this-week.jpg)
