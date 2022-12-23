@@ -6,3 +6,5 @@ You can set up any category. There are categories such as Work, Exercise, Social
 
 Graphs let you see a clear picture of where you spend your time.
 
+![Sync List File list](./img/yesterday.jpg)
+![Sync List File list](https://github.com/chrisjwaddell/Sync-List/blob/main/img/yesterday.jpg)
