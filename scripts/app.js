@@ -757,7 +757,12 @@ function render() {
     }
 
 
-    createAllSections()
+    if (objData) {
+        createAllSections()
+    } else {
+        objData = {}
+        objData.timesheetItems = []
+    }
 }
 
 
