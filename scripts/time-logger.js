@@ -11,6 +11,8 @@ const elCategoryHrs = document.querySelectorAll(".categ select")
 let elCategory
 const elDescr = document.querySelector(".description-input")
 
+let elTimes = null
+
 // ^GLOBALS
 let objData = {}
 
@@ -35,8 +37,6 @@ let timeperiod = STET(".times.start .field-section", STET_ID, "", 1, {
 		onClickETTimeLogger()
 	},
 })
-
-let elUL = document.querySelectorAll(".stet ul")
 
 let elWarningMsg = document.querySelector(".warningmsg small")
 
@@ -282,6 +282,14 @@ function DOMLoad() {
 		elCategoryHrs[3].innerHTML = hourList(totalHrs - hoursChosen())
 		elCategoryHrs[3].value = 0
 	})
+
+	elTimes = document.querySelectorAll(".times input")
+
+	if (!elTimes[0].value) {
+		elTimes[0].focus()
+	} else {
+		elTimes[1].focus()
+	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -455,18 +463,20 @@ function onAdd() {
 
 			// alert("check result")
 
-			let s = document.querySelectorAll("main section")
-			s.forEach((cv) => elMain.removeChild(cv))
-			render()
+			// let s = document.querySelectorAll("main section")
+			// s.forEach((cv) => elMain.removeChild(cv))
+			// render()
 		} else {
 			console.log(result)
 			console.log("This hasn't been saved")
 		}
 	}
 
-	previousField = "add"
-
-	elUL[0].children[listFindSelected(elUL[0], SC)].focus()
+	if (!elTimes[0].value) {
+		elTimes[0].focus()
+	} else {
+		elTimes[1].focus()
+	}
 }
 
 elAddBtn.addEventListener("click", onAdd)
