@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Timesheets</title>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/dropdown-field.css">
+    <link rel="stylesheet" type="text/css" href="./style/start-time-end-time.css">
+    <link rel="stylesheet" type="text/css" href="./style/time-logger.css">
     </link>
 </head>
 
@@ -28,178 +31,73 @@
 
             <div class="field-container o-flex">
                 <div class="field-section date">
-                    <h2>Date</h2>
-                    <div class="field">
-                        <label class="fld-label">Today</label>
-                        <input type="checkbox" class="today" checked="true" tabindex="1">
+                    <div class="times start">
+                        <div class="field-section">
+
+
+                        </div>
                     </div>
 
-                    <div class="field">
-                        <label class="fld-label">Yesterday</label>
-                        <input type="checkbox" class="yesterday" tabindex="2">
-                    </div>
-
-                    <div class="field">
-                        <label class="fld-label">Other date <span>d/m/yy</span></label>
-                        <input type="text" class="otherdate db o-layout--left e-input--primary" tabindex="3">
-                    </div>
                 </div>
 
 
-                <div class="field-section times">
-                    <h2>Times</h2>
-                    <div class="o-flex">
-                        <div class="start">
-                            <h3>Start</h3>
-                            <div class="o-flex">
-                                <div class="o-flex">
-                                    <div class="field">
-                                        <ul tabindex="4">
-                                            <li data-ampm="AM">0</li>
-                                            <li data-ampm="AM">1</li>
-                                            <li data-ampm="AM">2</li>
-                                            <li data-ampm="AM">3</li>
-                                            <li data-ampm="AM">4</li>
-                                            <li data-ampm="AM">5</li>
-                                            <li data-ampm="AM">6</li>
-                                            <li data-ampm="AM">7</li>
-                                            <li data-ampm="AM">8</li>
-                                            <li data-ampm="AM">9</li>
-                                            <li data-ampm="AM">10</li>
-                                            <li data-ampm="AM">11</li>
-                                            <li data-ampm="PM">12</li>
-                                            <li data-ampm="PM">1</li>
-                                            <li data-ampm="PM">2</li>
-                                            <li data-ampm="PM">3</li>
-                                            <li data-ampm="PM">4</li>
-                                            <li data-ampm="PM">5</li>
-                                            <li data-ampm="PM">6</li>
-                                            <li data-ampm="PM">7</li>
-                                            <li data-ampm="PM">8</li>
-                                            <li data-ampm="PM">9</li>
-                                            <li data-ampm="PM">10</li>
-                                            <li data-ampm="PM">11</li>
-                                            <li data-ampm="AM">0</li>
-                                        </ul>
-                                    </div>
-                                    <div class="field">
-                                        <p>Mins</p>
-                                        <ul tabindex="6">
-                                            <li>00</li>
-                                            <li>15</li>
-                                            <li>30</li>
-                                            <li>45</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="o-flex  o-flex-column">
+                    <div class="field-section categ category--1 isvisible">
+                        <h2>Category 1</h2>
+                        <div class="field">
+
                         </div>
 
-                        <div class="end">
-                            <h3>End</h3>
-                            <div class="o-flex">
-                                <div class="o-flex">
-                                    <div class="field">
-                                        <ul tabindex="7">
-                                            <li data-ampm="AM">0</li>
-                                            <li data-ampm="AM">1</li>
-                                            <li data-ampm="AM">2</li>
-                                            <li data-ampm="AM">3</li>
-                                            <li data-ampm="AM">4</li>
-                                            <li data-ampm="AM">5</li>
-                                            <li data-ampm="AM">6</li>
-                                            <li data-ampm="AM">7</li>
-                                            <li data-ampm="AM">8</li>
-                                            <li data-ampm="AM">9</li>
-                                            <li data-ampm="AM">10</li>
-                                            <li data-ampm="AM">11</li>
-                                            <li data-ampm="PM">12</li>
-                                            <li data-ampm="PM">1</li>
-                                            <li data-ampm="PM">2</li>
-                                            <li data-ampm="PM">3</li>
-                                            <li data-ampm="PM">4</li>
-                                            <li data-ampm="PM">5</li>
-                                            <li data-ampm="PM">6</li>
-                                            <li data-ampm="PM">7</li>
-                                            <li data-ampm="PM">8</li>
-                                            <li data-ampm="PM">9</li>
-                                            <li data-ampm="PM">10</li>
-                                            <li data-ampm="PM">11</li>
-                                            <li data-ampm="AM">0</li>
-                                        </ul>
-                                    </div>
-                                    <div class="field">
-                                        <p>Mins</p>
-                                        <ul tabindex="9">
-                                            <li>00</li>
-                                            <li>15</li>
-                                            <li>30</li>
-                                            <li>45</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="field">
+                            <select class="duration--1" tabindex="4">
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="field-section categ category--2">
+                        <h2>Category 2</h2>
+                        <div class="field">
+
+                        </div>
+
+                        <div class="field">
+                            <select class="duration--2" tabindex="6">
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="field-section categ category--3">
+                        <h2>Category 3</h2>
+                        <div class="field">
+
+                        </div>
+
+                        <div class="field">
+                            <select class="duration--3" tabindex="8">
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="field-section categ category--4">
+                        <h2>Category 4</h2>
+                        <div class="field">
+
+                        </div>
+
+                        <div class="field">
+                            <select class="duration--4" tabindex="10">
+                            </select>
                         </div>
                     </div>
                 </div>
 
-
-                <div class="field-section category">
-                    <h2>Category</h2>
-                    <div class="field">
-                        <ul tabindex="10">
-                        </ul>
-                    </div>
-
-
-                </div>
 
 
                 <div class="field-section description">
-
-                    <div>
-                        <p class="or">OR</p>
-                        <div>
-                            <div class="field">
-                                <select class="category--1">
-                                    <option></option>
-                                </select>
-                                <input type="text" class="hrs">
-                                <label class="text--primary">Hrs</label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="field">
-                                <select class="category--2">
-                                    <option></option>
-                                </select>
-                                <input type="text" class="hrs">
-                                <label class="text--primary">Hrs</label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="field">
-                                <select class="category--3">
-                                    <option></option>
-                                </select>
-                                <input type="text" class="hrs">
-                                <label class="text--primary">Hrs</label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="field">
-                                <select class="category--4">
-                                    <option></option>
-                                </select>
-                                <input type="text" class="hrs">
-                                <label class="text--primary">Hrs</label>
-                            </div>
-                        </div>
-                    </div>
-
 
                     <div class="">
                         <h2>Description</h2>
@@ -207,10 +105,13 @@
                             <input type="text" class="o-layout--left e-input--primary description-input" tabindex="11">
                         </div>
 
+                        <!-- <p class="warningmsg warning"></p> -->
+                        <div class="warningmsg warning o-layout--center"><small></small></div>
                         <div class="btns">
                             <div class="o-flex">
+
                                 <button class="c-btn c-btn--primary add" tabindex="12">Add</button>
-                                <button class="c-btn c-btn--primary clear" tabindex="12">Clear</button>
+                                <button class="c-btn c-btn--primary clear" tabindex="13">Clear</button>
                             </div>
                         </div>
                     </div>
@@ -223,22 +124,22 @@
         </div>
 
 
-
-        </div>
-
-
     </main>
 
 
 </body>
-<script src="./scripts/blue-moon-min.js"></script>
+<script src="https://cdn.rawgit.com/chrisjwaddell/console-log-plus/main/log.js"></script>
 <script src="./scripts/ls.js"></script>
+<script src="./scripts/blue-moon-min.js"></script>
 <script src="./scripts/settings.js"></script>
 <script src="./scripts/database.js"></script>
 <script src="./scripts/chart.min.js"></script>
 <script src="./scripts/utils.js"></script>
-<script src="./scripts/app.js"></script>
+<script src="./scripts/start-time-end-time.js"></script>
+<script src="./scripts/dropdown-field.js"></script>
+<script src="./scripts/time-logger.js"></script>
 <script src="./scripts/timesheet-tools.js"></script>
-<script src="./scripts/log.js"></script>
+<!-- <script src="./scripts/log.js"></script> -->
+<!-- <script src="./scripts/db-tools.js"></script> -->
 
 </html>

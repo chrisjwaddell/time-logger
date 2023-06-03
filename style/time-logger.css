@@ -1,0 +1,182 @@
+.field-section.date {
+	border-width: 0px;
+}
+
+.categ {
+	width: 265px;
+	visibility: hidden;
+}
+
+.categ .ddfield ul.ddlist {
+	top: 68px;
+	border: 2px solid #e8ba40;
+}
+
+select option {
+	line-height: 0.5;
+	font-size: 14px;
+	padding: 0px;
+}
+
+.description .or {
+	text-align: center;
+	margin: 5px;
+	font-weight: 600;
+}
+
+.description label {
+	font-size: 18px;
+}
+
+.description {
+	width: 19rem;
+	/* margin-left: auto;
+    margin-right: auto; */
+}
+
+.description input.hrs {
+	width: 70px;
+	text-align: left;
+}
+
+.description input {
+	width: 100%;
+	font-size: 1rem;
+}
+
+.btns {
+	width: 90%;
+	padding-top: 40px;
+	margin: 4px auto;
+}
+
+.btns .o-flex {
+	justify-content: space-evenly;
+}
+
+section {
+	margin: 150px auto 100px;
+	padding: 25px;
+	border-top: 4px solid var(--color-primary);
+}
+
+/* section:nth-of-type(odd) {
+    background-color: rgba(200, 50, 100, 0.2)
+} */
+
+h3 {
+	text-align: center;
+}
+
+section h3 {
+	color: var(--color-secondary);
+	text-decoration: underline;
+	font-size: 40px;
+}
+
+.target {
+	text-align: center;
+	color: rgba(255, 100, 100, 1);
+}
+
+h4.target {
+	margin: 0;
+}
+
+p.target {
+	text-align: center;
+	margin: 0;
+	line-height: 1.4;
+}
+
+table {
+	width: auto;
+	position: relative;
+	margin: 20px auto;
+	text-align: center;
+}
+
+table thead,
+table tbody {
+	width: 100%;
+}
+
+table thead th,
+table thead td,
+table tbody th,
+table tbody td {
+	padding: 5px;
+	border-right: solid 1px #ffffff;
+	font-size: 18px;
+}
+
+table thead {
+	top: 0;
+	left: 0;
+	background-color: var(--color-secondary);
+}
+
+table thead th {
+	color: #fff;
+	font-weight: bold;
+}
+
+table tbody {
+	background-color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: #e0e0e0;
+}
+
+table.today {
+	width: 1025px;
+}
+
+table thead th.date,
+table thead td.date,
+table tbody th.date,
+table tbody td.date {
+	width: 100px;
+}
+
+table thead th.day,
+table thead td.day,
+table tbody th.day,
+table tbody td.day {
+	width: 60px;
+}
+
+table thead th.times,
+table thead td.times,
+table tbody th.times,
+table tbody td.times {
+	width: 125px;
+	text-align: left;
+}
+
+table thead th.category,
+table thead td.category,
+table tbody th.category,
+table tbody td.category {
+	width: 400px;
+}
+
+table thead th.description,
+table thead td.description,
+table tbody th.description,
+table tbody td.description {
+	width: 500px;
+}
+
+table.thisweek {
+	width: 1125px;
+}
+
+main #todayChart {
+	width: 700px !important;
+	height: 500px !important;
+	margin: 40px auto;
+}
+
+/* ******************************************************************************* */

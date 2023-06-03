@@ -1,31 +1,15 @@
 @charset "UTF-8";
 
 :root {
-    --color-primary: #ffa000;
-    --color-secondary: #55aa22;
-    --color-primary__hover: rgba(255, 160, 0, 0.5);
-    --field-margin: 5px;
-    /* --color-primary__hover: #ffa000; */
-    /* .hover-<l-colour>:hover { color: var(--<l-colour>); }
+	--color-primary: #ffa000;
+	--color-secondary: #55aa22;
+	--color-primary__hover: rgba(255, 160, 0, 0.5);
+	--field-margin: 5px;
+	/* --color-primary__hover: #ffa000; */
+	/* .hover-<l-colour>:hover { color: var(--<l-colour>); }
   .hover-bg-<l-colour>:hover { background-color: var(--<l-colour>); }
   .hover-b-<l-colour>:hover { border-color: var(--<l-colour>); } */
 }
-
-
-html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-}
-
 
 /* ==========================================================================
    #NORMALIZE
@@ -36,17 +20,32 @@ html {
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
+
 html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 /**
  * Remove default margin.
  */
 body {
-    margin: 0;
+	margin: 0;
 }
 
 /* HTML5 display definitions
@@ -70,7 +69,7 @@ menu,
 nav,
 section,
 summary {
-    display: block;
+	display: block;
 }
 
 /**
@@ -81,10 +80,10 @@ audio,
 canvas,
 progress,
 video {
-    display: inline-block;
-    /* 1 */
-    vertical-align: baseline;
-    /* 2 */
+	display: inline-block;
+	/* 1 */
+	vertical-align: baseline;
+	/* 2 */
 }
 
 /**
@@ -92,8 +91,8 @@ video {
  * Remove excess height in iOS 5 devices.
  */
 audio:not([controls]) {
-    display: none;
-    height: 0;
+	display: none;
+	height: 0;
 }
 
 /**
@@ -102,7 +101,7 @@ audio:not([controls]) {
  */
 [hidden],
 template {
-    display: none;
+	display: none;
 }
 
 /* Links
@@ -111,7 +110,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-    background-color: transparent;
+	background-color: transparent;
 }
 
 /**
@@ -120,7 +119,7 @@ a {
  */
 a:active,
 a:hover {
-    outline: 0;
+	outline: 0;
 }
 
 /* Text-level semantics
@@ -129,7 +128,7 @@ a:hover {
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
-    border-bottom: 1px dotted;
+	border-bottom: 1px dotted;
 }
 
 /**
@@ -137,14 +136,14 @@ abbr[title] {
  */
 b,
 strong {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 /**
  * Address styling not present in Safari and Chrome.
  */
 dfn {
-    font-style: italic;
+	font-style: italic;
 }
 
 /**
@@ -152,23 +151,23 @@ dfn {
  * contexts in Firefox 4+, Safari, and Chrome.
  */
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+	font-size: 2em;
+	margin: 0.67em 0;
 }
 
 /**
  * Address styling not present in IE 8/9.
  */
 mark {
-    background: #ff0;
-    color: #000;
+	background: #ff0;
+	color: #000;
 }
 
 /**
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-    font-size: 80%;
+	font-size: 80%;
 }
 
 /**
@@ -176,18 +175,18 @@ small {
  */
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 sup {
-    top: -0.5em;
+	top: -0.5em;
 }
 
 sub {
-    bottom: -0.25em;
+	bottom: -0.25em;
 }
 
 /* Embedded content
@@ -196,14 +195,14 @@ sub {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-    border: 0;
+	border: 0;
 }
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 /* Grouping content
@@ -212,22 +211,22 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-    margin: 1em 40px;
+	margin: 1em 40px;
 }
 
 /**
  * Address differences between Firefox and other browsers.
  */
 hr {
-    box-sizing: content-box;
-    height: 0;
+	box-sizing: content-box;
+	height: 0;
 }
 
 /**
  * Contain overflow in all browsers.
  */
 pre {
-    overflow: auto;
+	overflow: auto;
 }
 
 /**
@@ -237,8 +236,8 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
+	font-family: monospace, monospace;
+	font-size: 1em;
 }
 
 /* Forms
@@ -258,24 +257,24 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit;
-    /* 1 */
-    font: inherit;
-    /* 2 */
-    margin: 0;
-    /* 3 */
+	color: inherit;
+	/* 1 */
+	font: inherit;
+	/* 2 */
+	margin: 0;
+	/* 3 */
 }
 
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
 button {
-    overflow: visible;
+	overflow: visible;
 }
 
 /* Mozilla puts a dotted line around text when a button is selected */
 button::-moz-focus-inner {
-    border: 0;
+	border: 0;
 }
 
 /**
@@ -286,7 +285,7 @@ button::-moz-focus-inner {
  */
 button,
 select {
-    text-transform: none;
+	text-transform: none;
 }
 
 /**
@@ -297,13 +296,13 @@ select {
  *    `input` and others.
  */
 button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-    -webkit-appearance: button;
-    /* 2 */
-    cursor: pointer;
-    /* 3 */
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	/* 2 */
+	cursor: pointer;
+	/* 3 */
 }
 
 /**
@@ -311,7 +310,7 @@ input[type=submit] {
  */
 button[disabled],
 html input[disabled] {
-    cursor: default;
+	cursor: default;
 }
 
 /**
@@ -319,8 +318,8 @@ html input[disabled] {
  */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+	border: 0;
+	padding: 0;
 }
 
 /**
@@ -328,7 +327,7 @@ input::-moz-focus-inner {
  * the UA stylesheet.
  */
 input {
-    line-height: normal;
+	line-height: normal;
 }
 
 /**
@@ -338,12 +337,12 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type=checkbox],
-input[type=radio] {
-    box-sizing: border-box;
-    /* 1 */
-    padding: 0;
-    /* 2 */
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	/* 1 */
+	padding: 0;
+	/* 2 */
 }
 
 /**
@@ -351,34 +350,34 @@ input[type=radio] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    height: auto;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
 }
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
-input[type=search] {
-    -webkit-appearance: textfield;
-    /* 1 */
-    box-sizing: content-box;
-    /* 2 */
+input[type="search"] {
+	-webkit-appearance: textfield;
+	/* 1 */
+	box-sizing: content-box;
+	/* 2 */
 }
 
-f input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration {
-    -webkit-appearance: none;
+f input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
 }
 
 /**
  * Define consistent border, margin, and padding.
  */
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
 }
 
 /**
@@ -386,17 +385,17 @@ fieldset {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
-    border: 0;
-    /* 1 */
-    padding: 0;
-    /* 2 */
+	border: 0;
+	/* 1 */
+	padding: 0;
+	/* 2 */
 }
 
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
-    overflow: auto;
+	overflow: auto;
 }
 
 /**
@@ -404,7 +403,7 @@ textarea {
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
 optgroup {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 /* Tables
@@ -413,13 +412,13 @@ optgroup {
  * Remove most spacing between table cells.
  */
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 td,
 th {
-    padding: 0;
+	padding: 0;
 }
 
 /* ==========================================================================
@@ -452,8 +451,8 @@ th,
 td,
 caption,
 hr {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /**
@@ -461,7 +460,7 @@ hr {
  */
 abbr[title],
 dfn[title] {
-    cursor: help;
+	cursor: help;
 }
 
 /**
@@ -469,14 +468,14 @@ dfn[title] {
  */
 u,
 ins {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 /**
  * Apply faux underlines to inserted text via `border-bottom`.
  */
 ins {
-    border-bottom: 1px solid;
+	border-bottom: 1px solid;
 }
 
 /* ==========================================================================
@@ -504,7 +503,7 @@ table,
 fieldset,
 figure,
 pre {
-    margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 /**
@@ -514,9 +513,8 @@ pre {
 ul,
 ol,
 dd {
-    margin-left: 48px;
+	margin-left: 48px;
 }
-
 
 /* ==========================================================================
    #HEADINGS
@@ -527,85 +525,83 @@ dd {
  * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
  */
 h1 {
-    font-size: 36px;
-    font-size: 2.25rem;
-    line-height: 1.1666666667;
+	font-size: 36px;
+	font-size: 2.25rem;
+	line-height: 1.1666666667;
 }
 
 h2 {
-    font-size: 28px;
-    font-size: 1.75rem;
-    line-height: 1.2857142857;
+	font-size: 28px;
+	font-size: 1.75rem;
+	line-height: 1.2857142857;
 }
 
 h3 {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 1.25;
+	font-size: 24px;
+	font-size: 1.5rem;
+	line-height: 1.25;
 }
 
 h4 {
-    font-size: 20px;
-    font-size: 1.25rem;
-    line-height: 1.5;
+	font-size: 20px;
+	font-size: 1.25rem;
+	line-height: 1.5;
 }
 
 h5 {
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 1.3333333333;
+	font-size: 18px;
+	font-size: 1.125rem;
+	line-height: 1.3333333333;
 }
 
 h6 {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 1.5;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
 h1,
 h2 {
-    font-family: "Raleway", sans-serif;
-    font-weight: 800;
-    line-height: 1.3;
-    color: #231f20;
+	font-family: "Raleway", sans-serif;
+	font-weight: 800;
+	line-height: 1.3;
+	color: #231f20;
 }
-
 
 /* ==========================================================================
    #CONTAINER
    ========================================================================== */
 .o-container {
-    width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-right: auto;
-    margin-left: auto;
+	width: 100%;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 @media (min-width: 576px) {
-    .o-container {
-        max-width: 450px;
-    }
+	.o-container {
+		max-width: 450px;
+	}
 }
 
 @media (min-width: 768px) {
-    .o-container {
-        max-width: 740px;
-    }
+	.o-container {
+		max-width: 740px;
+	}
 }
 
 @media (min-width: 992px) {
-    .o-container {
-        max-width: 960px;
-    }
+	.o-container {
+		max-width: 960px;
+	}
 }
 
 @media (min-width: 1250px) {
-    .o-container {
-        max-width: 1250px;
-    }
+	.o-container {
+		max-width: 1250px;
+	}
 }
-
 
 /* ==========================================================================
    #TEXT
@@ -625,52 +621,52 @@ h2 {
 * text-shadow
 */
 ::selection {
-    background-color: var(--color-primary);
-    text-shadow: none;
+	background-color: var(--color-primary);
+	text-shadow: none;
 }
 
 ::-moz-selection {
-    background-color: var(--color-primary);
-    text-shadow: none;
+	background-color: var(--color-primary);
+	text-shadow: none;
 }
 
 .selection--primary::selection {
-    background-color: var(--color-primary);
-    text-shadow: none;
+	background-color: var(--color-primary);
+	text-shadow: none;
 }
 
 .selection--secondary::selection {
-    background-color: #231f20;
-    text-shadow: none;
+	background-color: #231f20;
+	text-shadow: none;
 }
 
 .selection--tertiary::selection {
-    background-color: #7777ff;
-    text-shadow: none;
+	background-color: #7777ff;
+	text-shadow: none;
 }
 
 .text--primary::selection {
-    background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
 
 .text--primary::-moz-selection {
-    background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
 
 .text--secondary::selection {
-    background-color: #231f20;
+	background-color: #231f20;
 }
 
 .text--secondary::-moz-selection {
-    background-color: #231f20;
+	background-color: #231f20;
 }
 
 .text--tertiary::selection {
-    background-color: #7777ff;
+	background-color: #7777ff;
 }
 
 .text--tertiary::-moz-selection {
-    background-color: #7777ff;
+	background-color: #7777ff;
 }
 
 /* Font color should be set this way
@@ -679,22 +675,21 @@ h2 {
 .text--primary,
 .text--secondary,
 .text--tertary {
-    margin-top: 0;
-    margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .text--primary {
-    color: black;
+	color: black;
 }
 
 .text--secondary {
-    color: white;
+	color: white;
 }
 
 .text--tertiary {
-    color: #fee000;
+	color: #fee000;
 }
-
 
 /* ==========================================================================
    #FIELDS
@@ -710,35 +705,34 @@ h2 {
  */
 label,
 input {
-    /* display: block; */
-    margin: 0 auto;
+	/* display: block; */
+	margin: 0 auto;
 }
 
 label {
-    font-size: 24px;
-    /* font-weight: 600; */
+	font-size: 24px;
+	/* font-weight: 600; */
 }
 
 input {
-    /* width: 100%; */
-    font-size: 20px;
-    width: 60px;
-    border-style: solid;
-    border-width: 1px;
+	/* width: 100%; */
+	font-size: 20px;
+	width: 60px;
+	border-style: solid;
+	border-width: 1px;
 }
 
 .fld-label {
-    padding: 0 0 0 5px;
-    font-size: 1rem;
-    line-height: 1;
-    font-weight: 500;
+	padding: 0 0 0 5px;
+	font-size: 1rem;
+	line-height: 1;
+	font-weight: 500;
 }
 
 .modal .modal__remember input,
 .modal .modal__remember--new input {
-    font-size: 16px;
+	font-size: 16px;
 }
-
 
 /* ==========================================================================
    #INPUT
@@ -754,81 +748,81 @@ input {
  */
 label,
 input {
-    /* display: block; */
-    margin: 0 auto;
+	/* display: block; */
+	margin: 0 auto;
 }
 
 label {
-    font-size: 24px;
-    /* font-weight: 600; */
+	font-size: 24px;
+	/* font-weight: 600; */
 }
 
 input {
-    /* width: 100%; */
-    font-size: 20px;
-    width: 60px;
-    border-style: solid;
-    border-width: 1px;
+	/* width: 100%; */
+	font-size: 20px;
+	width: 60px;
+	border-style: solid;
+	border-width: 1px;
 }
 
 /* Style variants
    ========================================================================== */
 .e-input--primary {
-    height: 2rem;
-    padding: 0.25em 0.5em;
-    font-size: 22px;
-    font-family: "Source Sans Pro", sans-serif;
-    border: 2px solid #fee000;
-    border-radius: 6px;
+	height: 2rem;
+	padding: 0.25em 0.5em;
+	font-size: 22px;
+	font-family: "Source Sans Pro", sans-serif;
+	border: 2px solid #fee000;
+	border-radius: 6px;
 }
 
 .e-input--primary:hover,
 .e-input--primary:focus,
 .e-input--primary:active {
-    background-color: #f4f4f4;
-    transition: background-color 0.2s linear, color 0.2s linear;
+	background-color: #f4f4f4;
+	transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 .e-input--primary:focus,
 .e-input--primary:active {
-    color: white;
-    outline: none;
-    background-color: #231f20;
-    transition: background-color 0.2s linear, color 0.2s linear;
-    box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
+	color: white;
+	outline: none;
+	background-color: #231f20;
+	transition: background-color 0.2s linear, color 0.2s linear;
+	box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
 }
 
 .e-input--primary:placeholder-shown {
-    background-color: #fee000;
+	background-color: #fee000;
 }
 
 .e-input--secondary {
-    height: 2rem;
-    padding: 0.25em 0.5em;
-    font-size: 22px;
-    font-family: "Source Sans Pro", sans-serif;
-    border: 2px solid #fee000;
-    border-radius: 12px;
+	height: 2rem;
+	padding: 0.25em 0.5em;
+	font-size: 22px;
+	font-family: "Source Sans Pro", sans-serif;
+	border: 2px solid #fee000;
+	border-radius: 12px;
 }
 
 .e-input--secondary:hover,
 .e-input--secondary:focus,
 .e-input--secondary:active {
-    background-color: #f4f4f4;
-    transition: background-color 0.2s linear, color 0.2s linear;
+	background-color: #f4f4f4;
+	transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 .e-input--secondary:focus,
 .e-input--secondary:active {
-    color: white;
-    outline: none;
-    background-color: #231f20;
-    transition: background-color 0.2s linear, color 0.2s linear;
-    box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
+	color: white;
+	outline: none;
+	background-color: #231f20;
+	transition: background-color 0.2s linear, color 0.2s linear;
+	box-shadow: 0 0 0 0.125rem white, 0 0 0 0.325rem #fee000;
 }
 
 .e-input--secondary:placeholder-shown {
-    background-color: #fee000;
+	background-color: #fee000;
 }
 
 /* ==========================================================================
@@ -839,110 +833,110 @@ input {
  *
  */
 .o-flex {
-    display: flex;
+	display: flex;
 }
 
 .o-flex--1 {
-    flex: 1;
+	flex: 1;
 }
 
 .o-flex--2 {
-    flex: 2;
+	flex: 2;
 }
 
 .o-flex--3 {
-    flex: 3;
+	flex: 3;
 }
 
 .o-flex--4 {
-    flex: 4;
+	flex: 4;
 }
 
 .o-flex.centre {
-    justify-content: center;
+	justify-content: center;
 }
 
 .o-flex.right {
-    justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .o-flex.left {
-    justify-content: flex-start;
+	justify-content: flex-start;
 }
 
 .o-flex-row {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: row !important;
-    flex-direction: row !important;
+	-webkit-box-orient: horizontal !important;
+	-webkit-box-direction: normal !important;
+	-ms-flex-direction: row !important;
+	flex-direction: row !important;
 }
 
 .o-flex-column {
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
-    flex-direction: column !important;
+	-webkit-box-orient: vertical !important;
+	-webkit-box-direction: normal !important;
+	-ms-flex-direction: column !important;
+	flex-direction: column !important;
 }
 
 .o-flex-row-reverse {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: reverse !important;
-    -ms-flex-direction: row-reverse !important;
-    flex-direction: row-reverse !important;
+	-webkit-box-orient: horizontal !important;
+	-webkit-box-direction: reverse !important;
+	-ms-flex-direction: row-reverse !important;
+	flex-direction: row-reverse !important;
 }
 
 .o-flex-column-reverse {
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: reverse !important;
-    -ms-flex-direction: column-reverse !important;
-    flex-direction: column-reverse !important;
+	-webkit-box-orient: vertical !important;
+	-webkit-box-direction: reverse !important;
+	-ms-flex-direction: column-reverse !important;
+	flex-direction: column-reverse !important;
 }
 
 .o-flex-wrap {
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
+	-ms-flex-wrap: wrap !important;
+	flex-wrap: wrap !important;
 }
 
 .o-flex-nowrap {
-    -ms-flex-wrap: nowrap !important;
-    flex-wrap: nowrap !important;
+	-ms-flex-wrap: nowrap !important;
+	flex-wrap: nowrap !important;
 }
 
 .o-flex-wrap-reverse {
-    -ms-flex-wrap: wrap-reverse !important;
-    flex-wrap: wrap-reverse !important;
+	-ms-flex-wrap: wrap-reverse !important;
+	flex-wrap: wrap-reverse !important;
 }
 
 .dib {
-    display: inline-block;
+	display: inline-block;
 }
 
 .db {
-    display: block;
+	display: block;
 }
 
 .dn {
-    display: none;
+	display: none;
 }
 
 .pr {
-    position: relative;
+	position: relative;
 }
 
 .pa {
-    position: absolute;
+	position: absolute;
 }
 
 .h100 {
-    height: 100%;
+	height: 100%;
 }
 
 .mt3 {
-    margin-top: 3rem;
+	margin-top: 3rem;
 }
 
 .b-black {
-    border: 1px solid #000000;
+	border: 1px solid #000000;
 }
 
 /* This is handy for inline css, css only for that page
@@ -952,114 +946,120 @@ input {
 */
 /* Not sure how to use these classes */
 .c-p {
-    color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 .bg-p {
-    background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
 
 .b-p {
-    border-color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 .hover-c-p:hover {
-    color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 .hover-bg-p:hover {
-    background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
 
 .hover-b-p:hover {
-    border-color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 .c-s {
-    color: #231f20;
+	color: #231f20;
 }
 
 .bg-s {
-    background-color: #231f20;
+	background-color: #231f20;
 }
 
 .b-s {
-    border-color: #231f20;
+	border-color: #231f20;
 }
 
 .hover-c-s:hover {
-    color: #231f20;
+	color: #231f20;
 }
 
 .hover-bg-s:hover {
-    background-color: #231f20;
+	background-color: #231f20;
 }
 
 .hover-b-s:hover {
-    border-color: #231f20;
+	border-color: #231f20;
 }
 
 .c-t {
-    color: #7777ff;
+	color: #7777ff;
 }
 
 .bg-t {
-    background-color: #7777ff;
+	background-color: #7777ff;
 }
 
 .b-t {
-    border-color: #7777ff;
+	border-color: #7777ff;
 }
 
 .hover-c-t:hover {
-    color: #7777ff;
+	color: #7777ff;
 }
 
 .hover-bg-t:hover {
-    background-color: #7777ff;
+	background-color: #7777ff;
 }
 
 .hover-b-t:hover {
-    border-color: #7777ff;
+	border-color: #7777ff;
 }
 
 .c-white {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 .bg-white {
-    background-color: #ffffff;
+	background-color: #ffffff;
 }
 
 .c-black {
-    color: #000000;
+	color: #000000;
 }
 
 .bg-black {
-    background-color: #000000;
+	background-color: #000000;
 }
 
 .mac {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
+.isvisible {
+	visibility: visible !important;
+}
+
+.warning {
+	color: #ff0000 !important;
+}
 
 /* ==========================================================================
    #LAYOUT
    ========================================================================== */
 
 .o-layout--center {
-    text-align: center;
+	text-align: center;
 }
 
 .o-layout--right {
-    text-align: right;
+	text-align: right;
 }
 
 .o-layout--left {
-    text-align: left;
+	text-align: left;
 }
-
 
 /* ==========================================================================
    #BUTTONS
@@ -1081,114 +1081,110 @@ input {
  * 5. Force all button-styled elements to appear clickable.
  */
 .c-btn {
-    display: inline-block;
-    vertical-align: middle;
-    font: inherit;
-    text-align: center;
-    margin: 0;
-    cursor: pointer;
-    padding: 4px 8px;
-    transition: all 300ms ease-in-out;
-    border-radius: 3px;
+	display: inline-block;
+	vertical-align: middle;
+	font: inherit;
+	text-align: center;
+	margin: 0;
+	cursor: pointer;
+	padding: 4px 8px;
+	transition: all 300ms ease-in-out;
+	border-radius: 3px;
 }
 
 /* Style variants
    ========================================================================== */
 .c-btn--primary {
-    background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
 
 .c-btn--primary:hover,
 .c-btn--primary:focus,
 .c-btn--primary:active {
-    color: white;
-    text-decoration: none;
-    /* [4] */
-    background-color: var(--color-primary);
-    transition: background-color 0.2s linear, color 0.2s linear;
+	color: white;
+	text-decoration: none;
+	/* [4] */
+	background-color: var(--color-primary);
+	transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 .c-btn--primary:focus,
 .c-btn--primary:active {
-    outline: none;
-    box-shadow: 0 0 0 0.175rem white,
-        0 0 0 0.35rem var(--color-primary);
+	outline: none;
+	box-shadow: 0 0 0 0.175rem white, 0 0 0 0.35rem var(--color-primary);
 }
 
 .c-btn--secondary {
-    background-color: #231f20;
-    background-color: #E0E0E0;
-    color: black;
+	background-color: #231f20;
+	background-color: #e0e0e0;
+	color: black;
 }
 
 .c-btn--secondary:hover,
 .c-btn--secondary:focus,
 .c-btn--secondary:active {
-    text-decoration: none;
-    /* [4] */
-    background-color: #aaa;
-    transition: background-color 0.2s linear, color 0.2s linear;
+	text-decoration: none;
+	/* [4] */
+	background-color: #aaa;
+	transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 .c-btn--secondary:focus,
 .c-btn--secondary:active {
-    outline: none;
-    box-shadow: 0 0 0 0.125rem #fee000, 0 0 0 0.325rem white;
+	outline: none;
+	box-shadow: 0 0 0 0.125rem #fee000, 0 0 0 0.325rem white;
 }
-
-
 
 /* ==========================================================================
    #SCROLL TO TOP AND BOTTOM
    ========================================================================== */
 
 .scroll-arrow {
-    display: none;
-    height: 28px;
-    padding: 5px 0;
-    z-index: 6000;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease-out;
-    margin: 0 auto;
-    background-color: rgba(68, 68, 68, 0.4);
+	display: none;
+	height: 28px;
+	padding: 5px 0;
+	z-index: 6000;
+	border-radius: 8px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.3s ease-out;
+	margin: 0 auto;
+	background-color: rgba(68, 68, 68, 0.4);
 }
 
 .scroll-arrow.displayed {
-    position: fixed;
-    display: block;
-    right: 1rem;
-    width: 45px;
+	position: fixed;
+	display: block;
+	right: 1rem;
+	width: 45px;
 }
 
-.scroll-arrow.top>div {
-    transform: translateY(20%) rotate(45deg);
+.scroll-arrow.top > div {
+	transform: translateY(20%) rotate(45deg);
 }
 
-
-.scroll-arrow.bottom>div {
-    transform: translateY(-34%) rotate(225deg);
+.scroll-arrow.bottom > div {
+	transform: translateY(-34%) rotate(225deg);
 }
 
 .scroll-arrow:hover {
-    transform: scale(1.2);
+	transform: scale(1.2);
 }
 
-.scroll-arrow>div {
-    width: 20px;
-    height: 20px;
-    border-top: 3px solid #fff;
-    border-left: 3px solid #fff;
-    margin: 0 auto;
+.scroll-arrow > div {
+	width: 20px;
+	height: 20px;
+	border-top: 3px solid #fff;
+	border-left: 3px solid #fff;
+	margin: 0 auto;
 }
 
 .scroll-arrow.top {
-    top: 2rem;
+	top: 2rem;
 }
 
 .scroll-arrow.bottom {
-    bottom: 2rem;
+	bottom: 2rem;
 }
 
 /* ==========================================================================
@@ -1196,286 +1192,65 @@ input {
    ========================================================================== */
 
 header {
-    background-color: var(--color-secondary);
-    text-align: center;
+	background-color: var(--color-secondary);
+	text-align: center;
 }
 
 .field-container {
-    justify-content: center;
-    align-items: flex-start;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .field-section {
-    display: inline-block;
-    border: 1px solid var(--color-primary);
-    /* border-radius: 10% 10%; */
-    padding-bottom: 10px;
+	display: inline-block;
+	border: 1px solid var(--color-primary);
+	/* border-radius: 10% 10%; */
+	padding-bottom: 10px;
 }
 
 .field p {
-    margin: 2px 4px 4px;
+	margin: 2px 4px 4px;
 }
 
 .field-section h2 {
-    font-weight: 500;
-    text-align: center;
-    padding-top: 0;
-    text-decoration: underline;
-    /* background-color: green; */
-    margin-bottom: 0;
-    padding: 5px 12px;
+	font-weight: 500;
+	text-align: center;
+	padding-top: 0;
+	text-decoration: underline;
+	/* background-color: green; */
+	margin-bottom: 0;
+	padding: 5px 12px;
 }
 
 .field {
-    display: block;
-    padding: 5px 8px;
+	display: block;
+	padding: 5px 8px;
 }
 
 li,
 label,
 h2 {
-    user-select: none;
+	user-select: none;
 }
 
 li:hover {
-    background-color: var(--color-primary__hover);
-    font-weight: 400;
-    text-decoration: none;
-    color: #000000;
+	background-color: var(--color-primary__hover);
+	font-weight: 400;
+	text-decoration: none;
+	color: #000000;
 }
 
 li:focus {
-    background-color: var(--color-primary__hover);
-    font-weight: 400;
-    text-decoration: none;
-    color: #000000;
+	background-color: var(--color-primary__hover);
+	font-weight: 400;
+	text-decoration: none;
+	color: #000000;
 }
 
 li.selected {
-    background-color: var(--color-primary);
-    /* font-weight: 800; */
-    text-decoration: none;
-    color: #ffff;
-    border: none;
-}
-
-.date label {
-    display: inline-block;
-    width: 8rem;
-}
-
-.otherdate {
-    width: 7rem;
-    margin-left: 0;
-}
-
-
-.times h3 {
-    margin: 0;
-    text-align: center;
-}
-
-.times .start,
-.times .end {
-    margin: var(--field-margin);
-    border: 2px dashed var(--color-secondary);
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-.times .ampm {
-    margin-top: 5px;
-}
-
-.times ul,
-.category ul {
-    list-style: none;
-    margin: 0;
-    width: 2rem;
-    line-height: 1.25;
-    text-align: center;
-    border: 1px solid var(--color-primary);
-}
-
-.times li {
-    width: 2rem;
-}
-
-.category {
-    width: 15rem;
-}
-
-.category ul,
-.description select,
-.description select option {
-    width: 11rem;
-    text-align: center;
-    background-color: #ffffff;
-    width: 100%;
-}
-
-.description .or {
-    text-align: center;
-    margin: 5px;
-    font-weight: 600;
-}
-
-.description label {
-    font-size: 18px;
-}
-
-
-.description {
-    width: 19rem;
-    /* margin-left: auto;
-    margin-right: auto; */
-}
-
-.description input.hrs {
-    width: 70px;
-    text-align: left;
-}
-
-.description input {
-    width: 100%;
-    font-size: 1rem;
-}
-
-.btns {
-    width: 90%;
-    padding-top: 40px;
-    margin: 4px auto;
-}
-
-.btns .o-flex {
-    justify-content: space-evenly;
-}
-
-section {
-    margin: 150px auto 100px;
-    padding: 25px;
-    border-top: 4px solid var(--color-primary);
-}
-
-/* section:nth-of-type(odd) {
-    background-color: rgba(200, 50, 100, 0.2)
-} */
-
-h3 {
-    text-align: center;
-}
-
-section h3 {
-    color: var(--color-secondary);
-    text-decoration: underline;
-    font-size: 40px;
-}
-
-.target {
-    text-align: center;
-    color: rgba(255, 100, 100, 1);
-}
-
-h4.target {
-    margin: 0;
-}
-
-p.target {
-    text-align: center;
-    margin: 0;
-    line-height: 1.4;
-}
-
-table {
-    width: auto;
-    position: relative;
-    margin: 20px auto;
-    text-align: center;
-}
-
-table thead,
-table tbody {
-    width: 100%;
-}
-
-table thead th,
-table thead td,
-table tbody th,
-table tbody td {
-    padding: 5px;
-    border-right: solid 1px #ffffff;
-    font-size: 18px;
-}
-
-table thead {
-    top: 0;
-    left: 0;
-    background-color: var(--color-secondary);
-}
-
-table thead th {
-    color: #fff;
-    font-weight: bold;
-}
-
-table tbody {
-    background-color: #fff;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #e0e0e0;
-}
-
-
-
-
-table.today {
-    width: 1025px;
-}
-
-table thead th.date,
-table thead td.date,
-table tbody th.date,
-table tbody td.date {
-    width: 100px;
-}
-
-table thead th.day,
-table thead td.day,
-table tbody th.day,
-table tbody td.day {
-    width: 60px;
-}
-
-table thead th.times,
-table thead td.times,
-table tbody th.times,
-table tbody td.times {
-    width: 125px;
-    text-align: left;
-}
-
-table thead th.category,
-table thead td.category,
-table tbody th.category,
-table tbody td.category {
-    width: 400px;
-}
-
-table thead th.description,
-table thead td.description,
-table tbody th.description,
-table tbody td.description {
-    width: 500px;
-}
-
-table.thisweek {
-    width: 1125px;
-}
-
-
-main #todayChart {
-    width: 700px !important;
-    height: 500px !important;
-    margin: 40px auto;
+	background-color: var(--color-primary);
+	/* font-weight: 800; */
+	text-decoration: none;
+	color: #ffff;
+	border: none;
 }

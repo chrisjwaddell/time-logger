@@ -1,0 +1,260 @@
+.times {
+	width: 325px;
+	max-width: 325px;
+	margin: 0 auto;
+}
+
+.times h3 {
+	margin: 0;
+	text-align: center;
+}
+
+.day {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	justify-content: center;
+	align-items: center;
+}
+
+.triangle__container {
+	display: inline-flex;
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+	padding: 7px 0px;
+	justify-content: center;
+	align-items: center;
+}
+
+.triangle {
+	width: 100px;
+}
+
+.day h3 {
+	display: inline-block;
+	width: 200px;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+.triangle--left {
+	width: 0px;
+	height: 0px;
+	margin: 2px auto;
+	border-top: 15px solid white;
+	border-right: 15px solid #000000;
+	border-bottom: 15px solid white;
+	visibility: hidden;
+}
+
+.triangle--right {
+	width: 0px;
+	height: 0px;
+	margin: 2px auto;
+	border-top: 15px solid white;
+	border-bottom: 15px solid white;
+	border-left: 15px solid #000000;
+	visibility: hidden;
+}
+
+.day__timebar {
+	width: 100%;
+	height: 55px;
+	position: relative;
+}
+
+.day__timebar--text {
+	width: 140px;
+	top: 20px;
+}
+
+.day__timebar--text2 {
+	width: 70px;
+	top: 44px;
+}
+
+.day__timebar--text,
+.day__timebar--text2 {
+	height: 20px;
+	position: absolute;
+	left: 50px;
+	font-size: 12px;
+}
+
+.day__timebar--bar {
+	left: 0px;
+	width: 0px;
+	background-color: #aa99cc;
+}
+
+.day__timebar--bar,
+.day__timebar--bar-template {
+	height: 15px;
+	position: absolute;
+	top: 25px;
+}
+
+.day__timebar--bar-template {
+	width: 100%;
+	border-top: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	left: 0px;
+}
+
+.day__timebar-start,
+.day__timebar-end {
+	height: 18px;
+	position: absolute;
+	top: 24px;
+	left: 0px;
+	width: 4px;
+	z-index: 500;
+	visibility: hidden;
+	background-color: #000000;
+	border-radius: 12px;
+	/* cursor: grab; */
+}
+
+.day__timebar .marker {
+	position: absolute;
+	width: 72px;
+	z-index: 100;
+	top: -2px;
+	font-size: 14px;
+	padding: 4px;
+	border-radius: 5px;
+	visibility: hidden;
+	color: #fff;
+	background: #44bb55;
+	pointer-events: none;
+}
+
+/* top left */
+.day__timebar .marker.tl::after {
+	top: -7px;
+	left: 0px;
+	border-width: 0 10px 10px 0;
+}
+
+/* top right */
+.day__timebar .marker.tr::after {
+	top: -7px;
+	right: 0px;
+	border-width: 0 0 10px 10px;
+}
+
+/* bottom left */
+.day__timebar .marker.br::after {
+	top: 18px;
+	right: 0px;
+	border-width: 10px 0 0 10px;
+}
+
+/* bottom right */
+.day__timebar .marker.bl::after {
+	top: 18px;
+	left: 0px;
+	border-width: 10px 10px 0 0;
+}
+
+/* left top */
+.day__timebar .marker.lt::after {
+	top: 0px;
+	left: -8px;
+	border-width: 10px 10px 0 10px;
+}
+
+.day__timebar .marker.rt::after {
+	top: 0px;
+	right: -8px;
+	border-width: 10px 10px 0 10px;
+}
+
+.day__timebar .marker::after {
+	content: "";
+	position: absolute;
+	height: 5px;
+	z-index: -10;
+	border-style: solid;
+	border-color: #44bb55 transparent;
+}
+
+.day__timebar .marker.line {
+	top: 25px !important;
+	bottom: auto !important;
+}
+
+.day__timebar .marker.rt.line {
+	margin: 0 0 0 -8px;
+}
+
+.day__timebar .marker.lt.line {
+	margin: 0 0 0 10px;
+}
+
+.day__timebar .marker {
+	margin: 0;
+}
+
+.day__timebar .marker p {
+	font-size: 14px;
+}
+
+.times .start,
+.times .end {
+	width: 150px;
+	margin: var(--field-margin);
+	border: 1px solid var(--color-secondary);
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/* Dropdown-field CSS overwrite */
+
+.ddfield {
+	margin: 5px auto 10px;
+}
+
+.ddfield > label {
+	display: block;
+	height: 25px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	font-size: 1.4rem;
+	line-height: 1.25;
+	text-align: left;
+}
+
+/* Specific CSS for time fields */
+.time-field {
+	--dd-width: 125px;
+	--dd-font-size: 15px;
+	--dd-border-radius: 8px;
+	--dd-input-height: 32px;
+	/* color: #880522; */
+}
+
+.time-field input {
+	border: 2px solid #e8ba40;
+}
+
+.time-field .inputarrow .arrow {
+	background-image: unset;
+	border-width: 0;
+}
+
+.time-field.ddfield ul.ddlist {
+	border: 2px solid var(--color-primary);
+	/* background-color: var(--color-primary); */
+}
+
+.time-field.ddfield ul.ddlist li:hover {
+	color: #000000;
+	background-color: var(--color-secondary-hover);
+}
+
+.time-field.ddfield .ddlist li.selected {
+	background-color: var(--color-secondary);
+}
