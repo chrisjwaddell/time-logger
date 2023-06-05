@@ -104,6 +104,7 @@ let cat1Field = DropdownField(
 	{
 		maxLines: 15,
 		searchMode: "anywhere in",
+		autocomplete: true,
 		onChange: function () {
 			categoryField(1)
 		},
@@ -120,6 +121,7 @@ let cat2Field = DropdownField(
 	{
 		maxLines: 15,
 		searchMode: "anywhere in",
+		autocomplete: true,
 		onChange: function () {
 			categoryField(2)
 		},
@@ -136,6 +138,7 @@ let cat3Field = DropdownField(
 	{
 		maxLines: 15,
 		searchMode: "anywhere in",
+		autocomplete: true,
 		onChange: function () {
 			categoryField(3)
 		},
@@ -152,6 +155,7 @@ let cat4Field = DropdownField(
 	{
 		maxLines: 15,
 		searchMode: "anywhere in",
+		autocomplete: true,
 		onChange: function () {
 			categoryField(4)
 		},
