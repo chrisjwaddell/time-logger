@@ -12,6 +12,10 @@
 	border: 2px solid #e8ba40;
 }
 
+.categ input {
+	border: 2px solid #e8ba40;
+}
+
 select option {
 	line-height: 0.5;
 	font-size: 14px;
