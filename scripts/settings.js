@@ -119,10 +119,10 @@ const settings = [
 		enabled: true,
 		name: "This week",
 		startDate: BlueMoon({
-			day: "mon",
+			day: "Mon",
 		}),
 		endDate: BlueMoon({
-			day: "sun",
+			day: "Sun",
 		}),
 		table: true,
 		categoryGraph: true,
@@ -133,11 +133,11 @@ const settings = [
 		enabled: true,
 		name: "Last week",
 		startDate: BlueMoon({
-			day: "mon",
+			day: "Mon",
 			week: "-1",
 		}),
 		endDate: BlueMoon({
-			day: "sun",
+			day: "Sun",
 			week: "-1",
 		}),
 		table: true,
@@ -149,11 +149,11 @@ const settings = [
 		enabled: true,
 		name: "Two weeks ago",
 		startDate: BlueMoon({
-			day: "mon",
+			day: "Mon",
 			week: "-2",
 		}),
 		endDate: BlueMoon({
-			day: "sun",
+			day: "Sun",
 			week: "-2",
 		}),
 		table: true,
