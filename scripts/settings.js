@@ -90,12 +90,18 @@ const settings = [
 	{
 		enabled: true,
 		name: "Today",
-		startDate: BlueMoon({
-			day: "current",
-		}),
-		endDate: BlueMoon({
-			day: "current",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "current",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "current",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: false,
@@ -104,12 +110,18 @@ const settings = [
 	{
 		enabled: true,
 		name: "Yesterday",
-		startDate: BlueMoon({
-			day: "-1",
-		}),
-		endDate: BlueMoon({
-			day: "-1",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "-1",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "-1",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: false,
@@ -118,12 +130,18 @@ const settings = [
 	{
 		enabled: true,
 		name: "This week",
-		startDate: BlueMoon({
-			day: "Mon",
-		}),
-		endDate: BlueMoon({
-			day: "Sun",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "Mon",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "Sun",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: false,
@@ -132,14 +150,20 @@ const settings = [
 	{
 		enabled: true,
 		name: "Last week",
-		startDate: BlueMoon({
-			day: "Mon",
-			week: "-1",
-		}),
-		endDate: BlueMoon({
-			day: "Sun",
-			week: "-1",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "Mon",
+				week: "-1",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "Sun",
+				week: "-1",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: true,
@@ -148,14 +172,20 @@ const settings = [
 	{
 		enabled: true,
 		name: "Two weeks ago",
-		startDate: BlueMoon({
-			day: "Mon",
-			week: "-2",
-		}),
-		endDate: BlueMoon({
-			day: "Sun",
-			week: "-2",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "Mon",
+				week: "-2",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "Sun",
+				week: "-2",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: true,
@@ -164,12 +194,18 @@ const settings = [
 	{
 		enabled: true,
 		name: "This month",
-		startDate: BlueMoon({
-			day: 1,
-		}),
-		endDate: BlueMoon({
-			day: "monthend",
-		}),
+		startDate: BlueMoon(
+			{
+				day: 1,
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "monthend",
+			},
+			{resultAsDateObject: false}
+		),
 		table: false,
 		categoryGraph: true,
 		hideDefault: false,
@@ -178,14 +214,20 @@ const settings = [
 	{
 		enabled: true,
 		name: "Last month",
-		startDate: BlueMoon({
-			day: 1,
-			month: "-1",
-		}),
-		endDate: BlueMoon({
-			day: "monthend",
-			month: "-1",
-		}),
+		startDate: BlueMoon(
+			{
+				day: 1,
+				month: "-1",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "monthend",
+				month: "-1",
+			},
+			{resultAsDateObject: false}
+		),
 		table: true,
 		categoryGraph: true,
 		hideDefault: true,
@@ -194,14 +236,20 @@ const settings = [
 	{
 		enabled: true,
 		name: "Two months ago",
-		startDate: BlueMoon({
-			day: 1,
-			month: "-2",
-		}),
-		endDate: BlueMoon({
-			day: "monthend",
-			month: "-2",
-		}),
+		startDate: BlueMoon(
+			{
+				day: 1,
+				month: "-2",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "monthend",
+				month: "-2",
+			},
+			{resultAsDateObject: false}
+		),
 		table: false,
 		categoryGraph: true,
 		hideDefault: true,
@@ -210,12 +258,18 @@ const settings = [
 	{
 		enabled: true,
 		name: "Rolling Last 90 days",
-		startDate: BlueMoon({
-			day: "-90",
-		}),
-		endDate: BlueMoon({
-			day: "current",
-		}),
+		startDate: BlueMoon(
+			{
+				day: "-90",
+			},
+			{resultAsDateObject: false}
+		),
+		endDate: BlueMoon(
+			{
+				day: "current",
+			},
+			{resultAsDateObject: false}
+		),
 		table: false,
 		categoryGraph: true,
 		hideDefault: false,

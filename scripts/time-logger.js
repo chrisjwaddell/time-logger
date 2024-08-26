@@ -84,11 +84,11 @@ function categoryField(fieldnumber) {
 	} else {
 		elCategorySection[fieldnumber].classList.remove("isvisible")
 		elCategoryHrs[fieldnumber].value = 0
-		if (elCategorySection[fieldnumber + 1]) {
+		if (fieldnumber < 3 && elCategorySection[fieldnumber + 1]) {
 			elCategorySection[fieldnumber + 1].classList.remove("isvisible")
 			elCategoryHrs[fieldnumber + 1].value = 0
 		}
-		if (elCategorySection[fieldnumber + 2]) {
+		if (fieldnumber < 2 && elCategorySection[fieldnumber + 2]) {
 			elCategorySection[fieldnumber + 2].classList.remove("isvisible")
 			elCategoryHrs[fieldnumber + 2].value = 0
 		}
